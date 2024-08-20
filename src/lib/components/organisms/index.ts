@@ -1,1 +1,1 @@
-export * from './or-footer'
+export {}
