@@ -1,1 +1,1 @@
-export {}
+export * from '../../../components/ui/accordion'
