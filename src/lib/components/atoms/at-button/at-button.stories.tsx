@@ -1,6 +1,5 @@
 import React from 'react'
-import { AtButton, AtButtonProps, AT_BUTTON_VARIANT } from '.'
-import { objectValuesToControls } from '../../../storybook-utils'
+import { AtButton, AtButtonProps } from '.'
 import { Meta } from '@storybook/react'
 import { StoryFn } from '@storybook/react'
 
@@ -11,7 +10,6 @@ const meta: Meta<typeof AtButton> = {
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     label: { control: 'text' },
-    variant: objectValuesToControls(AT_BUTTON_VARIANT),
     onClick: { action: 'clicked' },
   },
 }
