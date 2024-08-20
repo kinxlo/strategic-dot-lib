@@ -44,8 +44,5 @@
     "*.{ts,tsx,js,jsx,json,css,md}": [
       "prettier -w"
     ]
-  },
-  "dependencies": {
-    "@strategic-dot/components": "file:"
   }
 }
