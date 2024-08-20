@@ -1,7 +1,7 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 import { StoryFn } from '@storybook/react'
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '../../../../components/ui/accordion'
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '../../../../components'
 
 // Adjust the Meta type to handle the complex types of Accordion components
 const meta: Meta<typeof Accordion> = {
