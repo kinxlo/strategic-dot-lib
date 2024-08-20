@@ -1,21 +1,21 @@
 {
   "name": "@strategic-dot/components",
   "private": false,
-  "version": "0.0.10",
+  "version": "0.0.11",
   "packageManager": "pnpm@8.4.0",
   "author": "Kinxlo",
   "repository": {
     "type": "git",
     "url": "https://github.com/kinxlo/strategic-dot-lib"
   },
-  "main": "./dist/vite-component-library-template.umd.js",
-  "module": "./dist/vite-component-library-template.es.js",
+  "main": "./dist/components.umd.js",
+  "module": "./dist/components.es.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/vite-component-library-template.es.js",
-      "require": "./dist/vite-component-library-template.umd.js"
+      "import": "./dist/components.es.js",
+      "require": "./dist/components.umd.js"
     },
     "./dist/style.css": "./dist/style.css"
   },
@@ -44,5 +44,8 @@
     "*.{ts,tsx,js,jsx,json,css,md}": [
       "prettier -w"
     ]
+  },
+  "dependencies": {
+    "@strategic-dot/components": "file:"
   }
 }
