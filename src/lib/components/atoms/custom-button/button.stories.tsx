@@ -21,53 +21,55 @@ const Template: StoryFn<typeof CustomButton> = (args: ButtonProperties) => <Cust
 
 export const Primary = Template.bind({})
 Primary.args = {
-  children: 'Button',
+  children: 'Subscribe',
   variant: 'primary',
   onClick: () => alert('clicking primary'),
 }
 export const Secondary = Template.bind({})
 Secondary.args = {
-  children: 'Button',
+  children: 'Subscribe',
   variant: 'secondary',
 }
 export const destructive = Template.bind({})
 destructive.args = {
-  children: 'Button',
+  children: 'Subscribe',
   variant: 'destructive',
 }
-export const subtle = Template.bind({})
-subtle.args = {
-  children: 'Button',
-  variant: 'subtle',
-}
+
 export const outline = Template.bind({})
 outline.args = {
-  children: 'Button',
+  children: 'Subscribe',
   variant: 'outline',
 }
 export const loading = Template.bind({})
 loading.args = {
-  children: 'Button',
+  children: 'Subscribe',
   variant: 'primary',
   isLoading: true,
 }
+export const disabled = Template.bind({})
+disabled.args = {
+  children: 'Subscribe',
+  variant: 'primary',
+  isDisabled: true,
+}
 export const withLeftIcon = Template.bind({})
 withLeftIcon.args = {
-  children: 'Button',
+  children: 'Subscribe',
   variant: 'primary',
   isLeftIconVisible: true,
   icon: <Orbit />,
 }
 export const withRightIcon = Template.bind({})
 withRightIcon.args = {
-  children: 'Button',
+  children: 'Subscribe',
   variant: 'primary',
   isRightIconVisible: true,
   icon: <Orbit />,
 }
 export const iconOnly = Template.bind({})
 iconOnly.args = {
-  children: 'Button',
+  children: 'Subscribe',
   variant: 'primary',
   isIconOnly: true,
   icon: <Orbit />,

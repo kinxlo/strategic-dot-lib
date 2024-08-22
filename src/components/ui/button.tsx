@@ -4,18 +4,19 @@ import { ButtonHTMLAttributes, forwardRef } from 'react'
 import { cn } from '../../lib/utils'
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50',
+  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-[3px] text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:bg-muted',
   {
     variants: {
       variant: {
         default: 'bg-default text-default-foreground shadow',
-        primary: 'bg-primary text-primary-foreground shadow',
-        destructive: 'bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive-hover',
+        primary: 'bg-primary text-primary-foreground shadow hover:bg-white hover:text-primary',
+        destructive: 'bg-destructive text-destructive-foreground shadow-sm hover:bg-white hover:text-destructive',
         subtle: 'bg-subtle text-subtle-foreground shadow-sm hover:bg-subtle-hover',
         loading:
           'bg-loading text-loading-foreground shadow-sm hover:bg-loading-hover opacity-50 hover:opacity-100 transition-opacity duration-500 ease-out',
-        outline: 'bg-outline text-outline-foreground shadow-sm border border-border hover:bg-outline-hover',
-        secondary: 'bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80',
+        outline:
+          'bg-outline text-outline-foreground shadow-sm border border-border border-black hover:bg-outline-hover',
+        secondary: 'bg-secondary text-secondary-foreground shadow-sm hover:bg-white hover:text-secondary',
         ghost: 'hover:bg-accent hover:text-accent-foreground',
         link: 'text-link underline-offset-4 hover:underline',
       },
