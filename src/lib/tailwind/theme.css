@@ -72,38 +72,65 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-  }
-}
+    --background: 222.2 84% 4.9%; /* dark background */
+    --foreground: 0 0% 100%; /* light foreground */
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
+    --card: 222.2 84% 4.9%; /* dark card background */
+    --card-foreground: 0 0% 100%; /* light card foreground */
+
+    --popover: 222.2 84% 4.9%; /* dark popover background */
+    --popover-foreground: 0 0% 100%; /* light popover foreground */
+
+    --primary: 353, 85%, 44%, 1; /* dark primary color */
+    --primary-foreground: 210 40% 98%; /* light primary foreground */
+
+    --secondary: 38, 100%, 68%, 1; /* dark secondary color */
+    --secondary-foreground: 222.2 47.4% 11.2%; /* light secondary foreground */
+
+    --muted: 0, 0%, 56%, 1; /* dark muted color */
+    --muted-foreground: 215.4 16.3% 46.9%; /* light muted foreground */
+
+    --accent: ; /* this is a wildcard */
+    --accent-foreground: 222.2 47.4% 11.2%; /* light accent foreground */
+
+    --destructive: 353, 74%, 28%, 1; /* dark destructive color */
+    --destructive-foreground: 210 40% 98%; /* light destructive foreground */
+
+    --border: 214.3 31.8% 91.4%; /* dark border color */
+    --input: 214.3 31.8% 91.4%; /* dark input color */
+    --ring: 222.2 84% 4.9%; /* dark ring color */
+    --radius: 0.5rem; /* same radius */
+
+    /* tsa design system */
+    --white: 222.2 84% 4.9%; /* dark white */
+    --black: 0 0% 100%; /* light black */
+
+    --high-blue: 235, 53%, 26%, 1; /* dark high blue */
+    --mid-blue: 215, 98%, 48%, 1; /* dark mid blue */
+    --low-blue: 216, 93%, 95%, 1; /* dark low blue */
+
+    --high-danger: 353, 74%, 28%, 1; /* dark high danger */
+    --mid-danger: 353, 85%, 44%, 1; /* dark mid danger */
+    --low-danger: 360, 95%, 87%, 1; /* dark low danger */
+
+    --high-warning: 38, 58%, 24%, 1; /* dark high warning */
+    --mid-warning: 38, 100%, 68%, 1; /* dark mid warning */
+    --low-warning: 38, 100%, 87%, 1; /* dark low warning */
+
+    --high-success: 140, 69%, 20%, 1; /* dark high success */
+    --mid-success: 140, 79%, 32%, 1; /* dark mid success */
+    --low-success: 140, 38%, 85%, 1; /* dark low success */
+
+    --high-grey-III: 0, 0%, 12%, 1; /* dark high grey III */
+    --mid-grey-III: 0, 0%, 21%, 1; /* dark mid grey III */
+    --low-grey-III: 0, 0%, 28%, 1; /* dark low grey III */
+
+    --high-grey-II: 0, 0%, 56%, 1; /* dark high grey II */
+    --mid-grey-II: 248, 1%, 71%, 1; /* dark mid grey II */
+    --low-grey-II: 0, 0%, 85%, 1; /* dark low grey II */
+
+    --high-grey-I: 0, 0%, 95%, 1; /* dark high grey I */
+    --mid-grey-I: 0, 0%, 98%, 1; /* dark mid grey I */
+    --low-grey-I: 0, 0%, 100%, 1; /* dark low grey I */
   }
 }

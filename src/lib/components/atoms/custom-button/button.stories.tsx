@@ -1,6 +1,5 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
-import { StoryFn } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { ButtonProperties, CustomButton } from '.'
 import { Orbit } from 'lucide-react'
 
@@ -23,7 +22,6 @@ export const Primary = Template.bind({})
 Primary.args = {
   children: 'Subscribe',
   variant: 'primary',
-  onClick: () => alert('clicking primary'),
 }
 export const Secondary = Template.bind({})
 Secondary.args = {
