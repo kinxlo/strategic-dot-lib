@@ -8,7 +8,7 @@ import { cn } from '../../../utils'
 import { TsaButton } from '../../atoms'
 import { Link } from 'react-router-dom'
 
-interface NavbarProperties extends HTMLElement {
+interface NavbarProperties {
   logoPath?: string
   navLinks?: []
 }
