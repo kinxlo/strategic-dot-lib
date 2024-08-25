@@ -72,7 +72,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [require('tailwindcss-animate'), require('@mertasan/tailwindcss-variables')],
 }
 
 export default config

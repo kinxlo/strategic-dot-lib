@@ -11,6 +11,9 @@ importers:
       '@hookform/resolvers':
         specifier: ^3.9.0
         version: 3.9.0(react-hook-form@7.52.2(react@18.3.1))
+      '@mertasan/tailwindcss-variables':
+        specifier: ^2.7.0
+        version: 2.7.0(autoprefixer@10.4.14(postcss@8.4.27))(postcss@8.4.27)
       '@radix-ui/react-accordion':
         specifier: ^1.2.0
         version: 1.2.0(@types/react-dom@18.2.7)(@types/react@18.2.20)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -85,7 +88,7 @@ importers:
         version: 1.1.2(@types/react-dom@18.2.7)(@types/react@18.2.20)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@strategic-dot/components':
         specifier: 'file:'
-        version: file:(@types/react-dom@18.2.7)(@types/react@18.2.20)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.3.3)
+        version: file:(@types/react-dom@18.2.7)(@types/react@18.2.20)(autoprefixer@10.4.14(postcss@8.4.27))(postcss@8.4.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.3.3)
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
@@ -1283,6 +1286,13 @@ packages:
     peerDependencies:
       '@types/react': '>=16'
       react: '>=16'
+
+  '@mertasan/tailwindcss-variables@2.7.0':
+    resolution: {integrity: sha512-rKPhxi/0r6XWP0+OjPmsfrloX/TtQmvONj2Pr3Nl8BNBznQVP3M9sphguDBUDC0AiKYx2xgup3XzAhlIDLPLIA==}
+    engines: {node: '>=12.13.0'}
+    peerDependencies:
+      autoprefixer: ^10.0.2
+      postcss: ^8.0.9
 
   '@microsoft/api-extractor-model@7.29.5':
     resolution: {integrity: sha512-axMwj4pgtYH6/IclP9ly33laSwTym1kBwSUcoHElc2LYAE5NNlhGT78ucEpIZtqEZaGgA8yxGXIyS17XCC2Iuw==}
@@ -6913,6 +6923,12 @@ snapshots:
       '@types/react': 18.2.20
       react: 18.3.1
 
+  '@mertasan/tailwindcss-variables@2.7.0(autoprefixer@10.4.14(postcss@8.4.27))(postcss@8.4.27)':
+    dependencies:
+      autoprefixer: 10.4.14(postcss@8.4.27)
+      lodash: 4.17.21
+      postcss: 8.4.27
+
   '@microsoft/api-extractor-model@7.29.5(@types/node@20.4.9)':
     dependencies:
       '@microsoft/tsdoc': 0.15.0
@@ -7940,9 +7956,10 @@ snapshots:
     dependencies:
       storybook: 8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2))
 
-  '@strategic-dot/components@file:(@types/react-dom@18.2.7)(@types/react@18.2.20)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.3.3)':
+  '@strategic-dot/components@file:(@types/react-dom@18.2.7)(@types/react@18.2.20)(autoprefixer@10.4.14(postcss@8.4.27))(postcss@8.4.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.3.3)':
     dependencies:
       '@hookform/resolvers': 3.9.0(react-hook-form@7.52.2(react@18.3.1))
+      '@mertasan/tailwindcss-variables': 2.7.0(autoprefixer@10.4.14(postcss@8.4.27))(postcss@8.4.27)
       '@radix-ui/react-accordion': 1.2.0(@types/react-dom@18.2.7)(@types/react@18.2.20)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-alert-dialog': 1.1.1(@types/react-dom@18.2.7)(@types/react@18.2.20)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-aspect-ratio': 1.1.0(@types/react-dom@18.2.7)(@types/react@18.2.20)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -7985,6 +8002,8 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
       - '@types/react-dom'
+      - autoprefixer
+      - postcss
       - tailwindcss
 
   '@testing-library/dom@10.1.0':

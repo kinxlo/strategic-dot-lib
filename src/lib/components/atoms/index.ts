@@ -1,2 +1,3 @@
-export * from './custom-button'
+export * from './tsa-button'
+export * from './tsa-input'
 export * from '../../../components'

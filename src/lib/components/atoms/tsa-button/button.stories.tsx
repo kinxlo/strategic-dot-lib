@@ -1,13 +1,12 @@
 import React from 'react'
 import { Meta, StoryFn } from '@storybook/react'
-import { ButtonProperties, CustomButton } from '.'
+import { ButtonProperties, TsaButton } from '.'
 import { Orbit } from 'lucide-react'
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-const meta: Meta<typeof CustomButton> = {
-  title: 'Atoms/custom-Button',
-  component: CustomButton,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
+const meta: Meta<typeof TsaButton> = {
+  title: 'Atoms/tsa-button',
+  component: TsaButton,
+
   argTypes: {
     children: { control: 'text' },
     onClick: { action: 'clicked' },
@@ -15,8 +14,7 @@ const meta: Meta<typeof CustomButton> = {
 }
 export default meta
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: StoryFn<typeof CustomButton> = (args: ButtonProperties) => <CustomButton {...args} />
+const Template: StoryFn<typeof TsaButton> = (args: ButtonProperties) => <TsaButton {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {

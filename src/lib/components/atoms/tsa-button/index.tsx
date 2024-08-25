@@ -38,12 +38,12 @@ interface ButtonProperties {
 }
 
 /**
- * CustomButton component to render a button with various styles and states.
+ * TsaButton component to render a button with various styles and states.
  *
  * @param {ButtonProps} props - Properties to configure the button.
  * @returns {JSX.Element} The rendered button component.
  */
-const CustomButton: FC<ButtonProperties> = ({
+const TsaButton: FC<ButtonProperties> = ({
   type = 'button',
   variant,
   size,
@@ -135,5 +135,5 @@ const CustomButton: FC<ButtonProperties> = ({
   )
 }
 
-export { CustomButton }
+export { TsaButton }
 export type { ButtonProperties }
