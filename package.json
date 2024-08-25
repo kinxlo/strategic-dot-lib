@@ -24,6 +24,7 @@
   },
   "scripts": {
     "dev": "storybook dev -p 6006",
+    "start": "pnpm dlx http-server storybook-static",
     "build": "storybook build",
     "build:lib": "tsc && vite build",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx --fix",
