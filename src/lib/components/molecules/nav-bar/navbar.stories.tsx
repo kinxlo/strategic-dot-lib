@@ -1,7 +1,6 @@
 import React from 'react'
 import { Meta, StoryFn } from '@storybook/react'
 import { TsaNavbar } from '.'
-import { BrowserRouter } from 'react-router-dom'
 
 const meta: Meta<typeof TsaNavbar> = {
   title: 'Molecules/tsa-navbar',
@@ -11,11 +10,7 @@ export default meta
 
 type TsaNavbarProps = React.ComponentPropsWithoutRef<typeof TsaNavbar>
 
-const Template: StoryFn<TsaNavbarProps> = (args) => (
-  <BrowserRouter>
-    <TsaNavbar {...args} />
-  </BrowserRouter>
-)
+const Template: StoryFn<TsaNavbarProps> = (args) => <TsaNavbar {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

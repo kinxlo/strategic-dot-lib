@@ -1,6 +1,6 @@
-// import { Image } from '@radix-ui/react-avatar'
+import Link from 'next/link'
+import Image from 'next/image'
 import { FC } from 'react'
-import { Link } from 'react-router-dom'
 
 interface LogoProperties {
   logo: string
@@ -8,8 +8,8 @@ interface LogoProperties {
 
 const Logo: FC<LogoProperties> = ({ logo }) => {
   return (
-    <Link to="/" className="" data-testid="logo">
-      <img src={logo} alt="Techstudio academy logo" height={37} width={150} className="" />
+    <Link href="/" className="" data-testid="logo">
+      <Image src={logo} alt="Techstudio academy logo" height={37} width={150} className="" />
     </Link>
   )
 }

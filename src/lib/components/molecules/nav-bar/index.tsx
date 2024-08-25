@@ -6,7 +6,7 @@ import { NAV_LINKS } from './links'
 import Logo from '../../atoms/logo'
 import { cn } from '../../../utils'
 import { TsaButton } from '../../atoms'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 
 interface NavbarProperties {
   logoPath?: string
@@ -55,11 +55,11 @@ export const TsaNavbar: FC<NavbarProperties> = ({ logoPath = '/images/logo-black
           })}
         </div>
         <div className="w-fullx hidden items-center justify-end gap-x-4 justify-self-end md:flex lg:gap-x-8">
-          <Link to={`/register`}>
-            <TsaButton variant="primary" className="h-[47px] w-[97px] rounded-lg">
-              Sign In
-            </TsaButton>
-          </Link>
+          {/* <Link href={`/register`}> */}
+          <TsaButton variant="primary" className="h-[47px] w-[97px] rounded-lg">
+            Sign In
+          </TsaButton>
+          {/* </Link> */}
         </div>
       </div>
     </nav>
