@@ -2,15 +2,16 @@
 
 import { FC, forwardRef, ReactNode, useEffect, useState } from 'react'
 import { NavLink } from './links'
-
+import { ChevronDown } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from '@/components'
 import Logo from '../../atoms/logo'
@@ -54,24 +55,25 @@ export const TsaNavbar: FC<NavbarProperties> = ({ logoPath = '', navLinks, child
         <NavigationMenu className="hidden w-full items-center justify-center gap-x-4 lg:flex lg:gap-x-6">
           {navLinks?.map((item, index) =>
             item?.dropdown ? (
-              <NavigationMenuList key={index}>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger>{item.route}</NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                      {item?.dropdown?.map((link) => (
-                        <ListItem key={link.title} title={link.title} href={link.href}>
-                          {link.description}
-                        </ListItem>
-                      ))}
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
+              <DropdownMenu key={index}>
+                <DropdownMenuTrigger className={`${navigationMenuTriggerStyle()} flex gap-1`}>
+                  <p>{item.route}</p>
+                  <ChevronDown size={`.9rem`} />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                    {item?.dropdown?.map((link) => (
+                      <ListItem key={link.title} title={link.title} href={link.href}>
+                        {link.description}
+                      </ListItem>
+                    ))}
+                  </ul>
+                </DropdownMenuContent>
+              </DropdownMenu>
             ) : (
               <NavigationMenuList key={index}>
                 <NavigationMenuItem>
-                  <NavigationMenuLink href={`/`} className={navigationMenuTriggerStyle()}>
+                  <NavigationMenuLink href={item.link} className={navigationMenuTriggerStyle()}>
                     {item.route}
                   </NavigationMenuLink>
                 </NavigationMenuItem>
@@ -118,3 +120,18 @@ export const ListItem = forwardRef<React.ElementRef<'a'>, React.ComponentPropsWi
   },
 )
 ListItem.displayName = 'ListItem'
+
+// <NavigationMenuList key={index}>
+//   <NavigationMenuItem>
+//     <NavigationMenuTrigger>{item.route}</NavigationMenuTrigger>
+//     <NavigationMenuContent>
+//       <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+//         {item?.dropdown?.map((link) => (
+//           <ListItem key={link.title} title={link.title} href={link.href}>
+//             {link.description}
+//           </ListItem>
+//         ))}
+//       </ul>
+//     </NavigationMenuContent>
+//   </NavigationMenuItem>
+// </NavigationMenuList>

@@ -10,7 +10,6 @@ import {
 } from '@/components'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Menu, ChevronDown } from 'lucide-react'
-import Link from 'next/link'
 import { FC } from 'react'
 import { ListItem, NavbarProperties } from '.'
 import { TsaButton } from '../../atoms'
@@ -43,9 +42,9 @@ export const MobileNavbar: FC<NavbarProperties> = ({ navLinks, children }) => {
             ) : (
               <NavigationMenuList key={index}>
                 <NavigationMenuItem>
-                  <Link href={item.link}>
-                    <NavigationMenuLink className={`${navigationMenuTriggerStyle()}`}>{item.route}</NavigationMenuLink>
-                  </Link>
+                  <NavigationMenuLink href={item.link} className={`${navigationMenuTriggerStyle()}`}>
+                    {item.route}
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
               </NavigationMenuList>
             ),
