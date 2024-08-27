@@ -1,5 +1,46 @@
 # Changelog
 
+## 1.0.0 (2024-08-27)
+
+
+### Features
+
+* add more shadcn comp ([3f10926](https://github.com/kinxlo/strategic-dot-lib/commit/3f1092694ceea2bf5f0b22b152264fbd5f3bc0b7))
+* added all relevant shadcn componets ([6d75017](https://github.com/kinxlo/strategic-dot-lib/commit/6d75017478a47324c1ce7fccb25a38728e8244d6))
+* added all relevant shadcn componets ([c5a74c6](https://github.com/kinxlo/strategic-dot-lib/commit/c5a74c6aef000384fc810240f068a233452a3c3d))
+* adding interaction to button component ([0205ea5](https://github.com/kinxlo/strategic-dot-lib/commit/0205ea53810a8509dfe781ba87dd84d8e8eb633c))
+* created tsa-input component ([5413dae](https://github.com/kinxlo/strategic-dot-lib/commit/5413dae19d0557f7c70b116c5ad4a9b1855f38a5))
+* created tsa-input component ([f065480](https://github.com/kinxlo/strategic-dot-lib/commit/f0654803b45ae76afeca852c82ce0dc23e1a9485))
+* integrated shadcn with storybook ([969213b](https://github.com/kinxlo/strategic-dot-lib/commit/969213b20a6943c8861c0082d7414d8eddbdf718))
+* integrated shadcn with storybook ([d1217fc](https://github.com/kinxlo/strategic-dot-lib/commit/d1217fcde688622ce705af1d87b1a6e4b4d71087))
+* integrated shadcn with storybook ([8cff56a](https://github.com/kinxlo/strategic-dot-lib/commit/8cff56a4cca5d00bbb752d34e83c97560292b55b))
+
+
+### Bug Fixes
+
+* added mobile functionality to navbar ([1347b6b](https://github.com/kinxlo/strategic-dot-lib/commit/1347b6b49987ed7df559d76aa012ceb2a362e8e8))
+* added mobile functionality to navbar ([d88ec71](https://github.com/kinxlo/strategic-dot-lib/commit/d88ec71f452aa4aac94fb275e82768345abc171a))
+* added mobile functionality to navbar ([258bdde](https://github.com/kinxlo/strategic-dot-lib/commit/258bddee8b3c67b173f9726d0c7843f056f9e3e8))
+* added mobile functionality to navbar ([78e8a2d](https://github.com/kinxlo/strategic-dot-lib/commit/78e8a2d69bcae93b357318d9e642ceec6b87efbb))
+* added mobile functionality to navbar ([e0e3f5c](https://github.com/kinxlo/strategic-dot-lib/commit/e0e3f5c86533bc48b59dd12d8d4b81d11a5c86f3))
+* added mobile functionality to navbar ([c89d268](https://github.com/kinxlo/strategic-dot-lib/commit/c89d268c5ccccc318838c950763b56e85d14de58))
+* added mobile functionality to navbar ([b9ed7e3](https://github.com/kinxlo/strategic-dot-lib/commit/b9ed7e35ccc9a52dd53cf4fec58c915ac468a03b))
+* cnanged pkg name ([3e71c86](https://github.com/kinxlo/strategic-dot-lib/commit/3e71c86cc7df02134548e0c6f1abd526a0809bee))
+* cnanged pkg name ([fd754ba](https://github.com/kinxlo/strategic-dot-lib/commit/fd754ba429dad43b6759973cbdfaafd8c9574736))
+* cnanged pkg name ([85a4cc5](https://github.com/kinxlo/strategic-dot-lib/commit/85a4cc5e275243161650095209576c521e34f740))
+* cnanged pkg name ([44a7ca6](https://github.com/kinxlo/strategic-dot-lib/commit/44a7ca62891cd105479f5b3a16f2aa95b793ba0e))
+* navbar component created ([5a8684a](https://github.com/kinxlo/strategic-dot-lib/commit/5a8684ae14d418b6242904caafb499e03d870c91))
+* navbar component created ([53be540](https://github.com/kinxlo/strategic-dot-lib/commit/53be540fc2b78b965a392770810bbcdc3579aa1c))
+* navbar component created ([8db98af](https://github.com/kinxlo/strategic-dot-lib/commit/8db98af43059a46d3dfa96f6133c0166e401e12d))
+* storybook config modified ([a8da69d](https://github.com/kinxlo/strategic-dot-lib/commit/a8da69d332c2a149d20e81273211624237a1bbcb))
+* updated lib version ([c9510ae](https://github.com/kinxlo/strategic-dot-lib/commit/c9510ae6ff3d7f80b2f08ca0d3388beaa02d8196))
+* updated lib version ([6eae2aa](https://github.com/kinxlo/strategic-dot-lib/commit/6eae2aabeebe25296461fedd3e9889a016bbbebc))
+* updated lib version ([e6cb0c9](https://github.com/kinxlo/strategic-dot-lib/commit/e6cb0c999beafb5079caa7fb7d8e8285c9a5e9df))
+* updated lib version ([a6edb3c](https://github.com/kinxlo/strategic-dot-lib/commit/a6edb3cc3084ec823c48690e696fc18d799bd93f))
+* updated lib version ([a1cf55f](https://github.com/kinxlo/strategic-dot-lib/commit/a1cf55f026252c7958f4276133be783cd76333b9))
+* updated script commands ([ea20f59](https://github.com/kinxlo/strategic-dot-lib/commit/ea20f5963cf89672b3c7285e697d212e08af85c9))
+* upgraded storybook package and dependencies ([26adcf7](https://github.com/kinxlo/strategic-dot-lib/commit/26adcf73182ee70bc5ce7d4878ae4979b06e2d92))
+
 ## [2.0.4](https://github.com/IgnacioNMiranda/vite-component-library-template/compare/v2.0.3...v2.0.4) (2023-09-10)
 
 
