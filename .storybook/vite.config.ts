@@ -14,7 +14,7 @@ const app = async (): Promise<UserConfigExport> => {
     },
     // resolve: {
     //   alias: {
-    //     '@': path.resolve(__dirname, './src'),
+    //     '@': path.resolve(__dirname, './src/*'),
     //   },
     // },
   })

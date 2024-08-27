@@ -1,6 +1,8 @@
 import React from 'react'
 import { Meta, StoryFn } from '@storybook/react'
 import { TsaNavbar } from '.'
+import { NAV_LINKS } from './links'
+import { TsaButton } from '../../atoms'
 
 const meta: Meta<typeof TsaNavbar> = {
   title: 'Molecules/tsa-navbar',
@@ -16,28 +18,39 @@ export const Default = Template.bind({})
 Default.args = {
   navLinks: [
     {
-      route: 'Link 1',
-      link: '/',
-      hasdropDown: false,
-    },
-    {
-      route: 'Link 2',
-      link: '/',
-      hasdropDown: false,
-    },
-    {
-      route: 'Link 3',
+      route: 'LINK 1',
       link: '/',
     },
     {
-      route: 'Link 4',
+      route: 'LINK 2',
       link: '/',
-      hasdropDown: false,
     },
     {
-      route: 'Link 5',
+      route: 'LINK 3',
       link: '/',
-      hasdropDown: true,
+    },
+    {
+      route: 'LINK 4',
+      link: '/',
+    },
+    {
+      route: 'LINK 5',
+      link: '/',
     },
   ],
+  children: (
+    <>
+      <TsaButton href="/signin" variant="primary" className="h-[47px] w-[97px] rounded-lg">
+        CTA 1
+      </TsaButton>
+      <TsaButton href="/signup" variant="outline" className="h-[47px] w-[97px] rounded-lg">
+        CTA 2
+      </TsaButton>
+    </>
+  ),
+}
+
+export const CustomCTA = Template.bind({})
+CustomCTA.args = {
+  navLinks: NAV_LINKS,
 }
