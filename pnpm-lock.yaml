@@ -88,7 +88,7 @@ importers:
         version: 1.1.2(@types/react-dom@18.2.7)(@types/react@18.2.20)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@strategic-dot/components':
         specifier: 'file:'
-        version: file:(@babel/core@7.22.10)(@types/react-dom@18.2.7)(@types/react@18.2.20)(autoprefixer@10.4.14(postcss@8.4.27))(postcss@8.4.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.3.3)
+        version: file:(@types/react-dom@18.2.7)(@types/react@18.2.20)(autoprefixer@10.4.14(postcss@8.4.27))(next@14.2.6(@babel/core@7.22.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(postcss@8.4.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.3.3)
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
@@ -142,7 +142,7 @@ importers:
         specifier: 7.22.10
         version: 7.22.10
       '@chromatic-com/storybook':
-        specifier: ^1.7.0
+        specifier: '1'
         version: 1.7.0(react@18.3.1)
       '@storybook/addon-essentials':
         specifier: ^8.2.9
@@ -169,7 +169,7 @@ importers:
         specifier: ^8.2.9
         version: 8.2.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@3.29.4)(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))(typescript@5.1.6)(vite@4.4.9(@types/node@20.4.9)(terser@5.31.6))
       '@storybook/test':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))(vitest@0.34.1(jsdom@22.1.0)(terser@5.31.6))
       '@storybook/theming':
         specifier: ^8.2.9
@@ -2409,6 +2409,7 @@ packages:
     resolution: {directory: '', type: directory}
     engines: {node: '18'}
     peerDependencies:
+      next: ^14.2.6
       react: ^18.2.0
       react-dom: ^18.2.0
 
@@ -9344,7 +9345,7 @@ snapshots:
     dependencies:
       storybook: 8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2))
 
-  '@strategic-dot/components@file:(@babel/core@7.22.10)(@types/react-dom@18.2.7)(@types/react@18.2.20)(autoprefixer@10.4.14(postcss@8.4.27))(postcss@8.4.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.3.3)':
+  '@strategic-dot/components@file:(@types/react-dom@18.2.7)(@types/react@18.2.20)(autoprefixer@10.4.14(postcss@8.4.27))(next@14.2.6(@babel/core@7.22.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(postcss@8.4.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.3.3)':
     dependencies:
       '@hookform/resolvers': 3.9.0(react-hook-form@7.52.2(react@18.3.1))
       '@mertasan/tailwindcss-variables': 2.7.0(autoprefixer@10.4.14(postcss@8.4.27))(postcss@8.4.27)
@@ -9389,15 +9390,10 @@ snapshots:
       vaul: 0.9.1(@types/react-dom@18.2.7)(@types/react@18.2.20)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       zod: 3.23.8
     transitivePeerDependencies:
-      - '@babel/core'
-      - '@opentelemetry/api'
-      - '@playwright/test'
       - '@types/react'
       - '@types/react-dom'
       - autoprefixer
-      - babel-plugin-macros
       - postcss
-      - sass
       - tailwindcss
 
   '@swc/counter@0.1.3': {}

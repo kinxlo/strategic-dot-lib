@@ -22,9 +22,19 @@ export interface NavbarProperties {
   navLinks: NavLink[]
   logoPath: string
   children?: ReactNode
+  bgScrollColor?: string
+  linkClassName?: string
+  className?: string
 }
 
-export const TsaNavbar: FC<NavbarProperties> = ({ logoPath = '', navLinks, children }) => {
+export const TsaNavbar: FC<NavbarProperties> = ({
+  logoPath = '',
+  navLinks,
+  children,
+  bgScrollColor,
+  linkClassName,
+  className,
+}) => {
   const [scrolling, setIsScrolling] = useState<boolean>(false)
 
   const handleScrollEvent = () => {
@@ -44,11 +54,11 @@ export const TsaNavbar: FC<NavbarProperties> = ({ logoPath = '', navLinks, child
   }, [])
 
   return (
-    <nav className={`${scrolling ? 'shadow-md' : 'shadow-none'} sticky left-0 right-0 top-0 z-40 bg-background`}>
+    <nav className={`${scrolling ? 'shadow-md' : 'shadow-none'} sticky left-0 right-0 top-0 z-40 ${className}`}>
       <div
         className={cn(
           `relative mx-auto flex w-full max-w-[1239px] items-center gap-x-4 px-4 transition-all duration-500 justify-between`,
-          scrolling ? 'py-2' : 'py-4 md:py-6',
+          scrolling ? `py-2 ${bgScrollColor}` : 'py-4 md:py-6',
         )}
       >
         <Logo logo={logoPath} />
@@ -56,7 +66,9 @@ export const TsaNavbar: FC<NavbarProperties> = ({ logoPath = '', navLinks, child
           {navLinks?.map((item, index) =>
             item?.dropdown ? (
               <DropdownMenu key={index}>
-                <DropdownMenuTrigger className={`${navigationMenuTriggerStyle()} flex gap-1`}>
+                <DropdownMenuTrigger
+                  className={`${navigationMenuTriggerStyle()} flex gap-1 bg-transparent ${linkClassName}`}
+                >
                   <p>{item.route}</p>
                   <ChevronDown size={`.9rem`} />
                 </DropdownMenuTrigger>
@@ -73,7 +85,10 @@ export const TsaNavbar: FC<NavbarProperties> = ({ logoPath = '', navLinks, child
             ) : (
               <NavigationMenuList key={index}>
                 <NavigationMenuItem>
-                  <NavigationMenuLink href={item.link} className={navigationMenuTriggerStyle()}>
+                  <NavigationMenuLink
+                    href={item.link}
+                    className={(navigationMenuTriggerStyle(), `bg-transparent ${linkClassName}`)}
+                  >
                     {item.route}
                   </NavigationMenuLink>
                 </NavigationMenuItem>

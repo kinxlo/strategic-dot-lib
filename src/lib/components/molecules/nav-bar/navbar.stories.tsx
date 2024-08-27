@@ -54,4 +54,14 @@ export const CustomCTA = Template.bind({})
 CustomCTA.args = {
   navLinks: NAV_LINKS,
   logoPath: '/images/logo-black.png',
+  className: 'bg-accent',
+  linkClassName: 'text-black',
+}
+
+export const CustomCTA_2 = Template.bind({})
+CustomCTA_2.args = {
+  navLinks: NAV_LINKS,
+  logoPath: '/images/logo-white.png',
+  className: 'bg-primary',
+  linkClassName: 'text-white',
 }
