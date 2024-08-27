@@ -1,4 +1,18 @@
-export const NAV_LINKS = [
+// Define types for the dropdown items and the main navigation links
+type DropdownItem = {
+  title: string
+  href: string
+  description: string
+}
+
+export type NavLink = {
+  route: string
+  link: string
+  dropdown?: DropdownItem[] // Optional dropdown property
+}
+
+// Use the types to define the NAV_LINKS array
+export const NAV_LINKS: NavLink[] = [
   { route: 'About Us', link: '/about' },
   {
     route: 'Courses',

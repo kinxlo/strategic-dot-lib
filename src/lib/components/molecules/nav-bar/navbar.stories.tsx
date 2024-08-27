@@ -53,4 +53,5 @@ Default.args = {
 export const CustomCTA = Template.bind({})
 CustomCTA.args = {
   navLinks: NAV_LINKS,
+  logoPath: '/images/logo-black.png',
 }

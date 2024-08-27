@@ -9,7 +9,11 @@ interface LogoProperties {
 const Logo: FC<LogoProperties> = ({ logo }) => {
   return (
     <Link href="/" className="" data-testid="logo">
-      <Image src={logo} alt="Techstudio academy logo" height={37} width={150} className="" />
+      {logo ? (
+        <Image priority src={logo} alt="Techstudio academy logo" height={37} width={150} className="" />
+      ) : (
+        <p className="font-bold text-xl">LOGO</p>
+      )}
     </Link>
   )
 }

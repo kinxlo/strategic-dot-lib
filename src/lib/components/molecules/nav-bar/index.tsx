@@ -1,9 +1,8 @@
 'use client'
 
 import { FC, forwardRef, ReactNode, useEffect, useState } from 'react'
-import { NAV_LINKS } from './links'
+import { NavLink } from './links'
 
-import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import {
   NavigationMenu,
@@ -19,16 +18,12 @@ import { TsaButton } from '../../atoms'
 import { MobileNavbar } from './mobile-nav'
 
 export interface NavbarProperties {
-  logoPath?: string
-  navLinks?: []
+  navLinks: NavLink[]
+  logoPath: string
   children?: ReactNode
 }
 
-export const TsaNavbar: FC<NavbarProperties> = ({
-  logoPath = '/images/logo-black.png',
-  navLinks = NAV_LINKS,
-  children,
-}) => {
+export const TsaNavbar: FC<NavbarProperties> = ({ logoPath = '', navLinks, children }) => {
   const [scrolling, setIsScrolling] = useState<boolean>(false)
 
   const handleScrollEvent = () => {
@@ -74,11 +69,11 @@ export const TsaNavbar: FC<NavbarProperties> = ({
                 </NavigationMenuItem>
               </NavigationMenuList>
             ) : (
-              <NavigationMenuList>
+              <NavigationMenuList key={index}>
                 <NavigationMenuItem>
-                  <Link href="/">
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>{item.route}</NavigationMenuLink>
-                  </Link>
+                  <NavigationMenuLink href={`/`} className={navigationMenuTriggerStyle()}>
+                    {item.route}
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
               </NavigationMenuList>
             ),
@@ -94,7 +89,7 @@ export const TsaNavbar: FC<NavbarProperties> = ({
           )}
         </div>
         <section className="lg:hidden">
-          <MobileNavbar />
+          <MobileNavbar navLinks={navLinks} logoPath={''} />
         </section>
       </div>
     </nav>

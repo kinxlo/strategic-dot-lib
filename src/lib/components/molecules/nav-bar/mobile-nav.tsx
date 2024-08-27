@@ -13,14 +13,9 @@ import { Menu, ChevronDown } from 'lucide-react'
 import Link from 'next/link'
 import { FC } from 'react'
 import { ListItem, NavbarProperties } from '.'
-import { NAV_LINKS } from './links'
 import { TsaButton } from '../../atoms'
 
-export const MobileNavbar: FC<NavbarProperties> = ({
-  logoPath = '/images/logo-black.png',
-  navLinks = NAV_LINKS,
-  children,
-}) => {
+export const MobileNavbar: FC<NavbarProperties> = ({ navLinks, children }) => {
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -30,7 +25,7 @@ export const MobileNavbar: FC<NavbarProperties> = ({
         <NavigationMenu className="mx-auto flex flex-col gap-3 max-w-xl">
           {navLinks?.map((item, index) =>
             item?.dropdown ? (
-              <DropdownMenu>
+              <DropdownMenu key={index}>
                 <DropdownMenuTrigger className={`${navigationMenuTriggerStyle()}`}>
                   {item.route}
                   <ChevronDown size={`1rem`} />
@@ -59,7 +54,7 @@ export const MobileNavbar: FC<NavbarProperties> = ({
             {children ? (
               children
             ) : (
-              <TsaButton href="/signin" variant="primary" className="h-[47px] w-[97px] rounded-lg">
+              <TsaButton href="/signin" variant="primary" className="h-[47px] w-[97px] bg-mid-blue rounded-lg">
                 Sign In
               </TsaButton>
             )}
