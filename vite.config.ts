@@ -26,11 +26,11 @@ const app = async (): Promise<UserConfigExport> => {
         plugins: [tailwindcss],
       },
     },
-    // resolve: {
-    //   alias: {
-    //     '@': path.resolve(__dirname, './src/*'),
-    //   },
-    // },
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, 'src'),
+      },
+    },
     build: {
       lib: {
         entry: path.resolve(__dirname, 'src/lib/index.ts'),

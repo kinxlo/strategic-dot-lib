@@ -12,11 +12,11 @@ const app = async (): Promise<UserConfigExport> => {
         plugins: [tailwindcss],
       },
     },
-    // resolve: {
-    //   alias: {
-    //     '@': path.resolve(__dirname, './src/*'),
-    //   },
-    // },
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, 'src'),
+      },
+    },
   })
 }
 // https://vitejs.dev/config/
