@@ -73,6 +73,6 @@ const config: Config = {
     },
   },
   plugins: [require('tailwindcss-animate'), require('@mertasan/tailwindcss-variables')],
-}
+} satisfies Config
 
 export default config

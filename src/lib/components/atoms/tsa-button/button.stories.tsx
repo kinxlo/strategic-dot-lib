@@ -26,6 +26,11 @@ Secondary.args = {
   children: 'Subscribe',
   variant: 'secondary',
 }
+export const Accent = Template.bind({})
+Accent.args = {
+  children: 'Subscribe',
+  variant: 'accent',
+}
 export const destructive = Template.bind({})
 destructive.args = {
   children: 'Subscribe',

@@ -26,11 +26,11 @@ const app = async (): Promise<UserConfigExport> => {
         plugins: [tailwindcss],
       },
     },
-    // resolve: {
-    //   alias: {
-    //     '@': path.resolve(__dirname, './src'),
-    //   },
-    // },
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, 'src'),
+      },
+    },
     build: {
       lib: {
         entry: path.resolve(__dirname, 'src/lib/index.ts'),
@@ -39,7 +39,7 @@ const app = async (): Promise<UserConfigExport> => {
         fileName: (format) => `${formattedName}.${format}.js`,
       },
       rollupOptions: {
-        external: ['react', 'react/jsx-runtime', 'react-dom', 'tailwindcss'],
+        external: ['react', 'next', 'react/jsx-runtime', 'react-dom', 'tailwindcss'],
         output: {
           globals: {
             react: 'React',

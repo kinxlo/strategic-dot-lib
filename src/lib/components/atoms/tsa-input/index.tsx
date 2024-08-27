@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from 'react'
-import { cn } from '../../../utils'
 import { InfoIcon } from 'lucide-react'
-import { Input } from '../../../../components/ui/input'
+import { cn } from '@/lib/utils'
+import { Input } from '@/components/ui/input'
 
 export interface CustomInputProperties {
   label?: string

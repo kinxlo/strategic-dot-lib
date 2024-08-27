@@ -14,13 +14,14 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
-    // "baseUrl": ".",
-    // "paths": {
-    //   "@/*": [
-    //     "./src/*"
-    //   ]
-    // }
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+      // "~/*": [
+      //   "./src/lib/components/*"
+      // ]
+    }
   },
   "include": ["./src/**/*.ts", "./src/**/*.tsx"],
   "exclude": ["./src/**/*.stories.*"]

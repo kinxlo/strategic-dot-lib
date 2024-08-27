@@ -1,8 +1,8 @@
-import { Button } from '../../../../components/ui/button'
+import { Button } from '@/components/ui/button'
 import { LoaderCircle, Plus } from 'lucide-react'
+import Link from 'next/link'
 
 import { cloneElement, FC, MouseEventHandler, ReactElement, ReactNode } from 'react'
-import { Link } from 'react-router-dom'
 
 type Variant = 'default' | 'primary' | 'destructive' | 'subtle' | 'loading' | 'outline' | 'secondary' | 'ghost' | 'link'
 type Size = 'default' | 'sm' | 'lg' | 'link' | 'icon' | 'circle'
