@@ -1,10 +1,11 @@
 import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from '@/components'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
@@ -14,8 +15,9 @@ import { ListItem } from '.'
 import { TsaButton } from '../../atoms'
 import { TsaNavbarProperties } from '@/types/index.types'
 import { cn } from '@/lib/utils'
+import { ChevronDown } from 'lucide-react'
 
-export const MobileNavbar: FC<TsaNavbarProperties> = ({ navLinks, children }) => {
+export const MobileNavbar: FC<TsaNavbarProperties> = ({ navLinks, linkClassName, children }) => {
   return (
     <Sheet>
       <SheetTrigger className="cursor-pointer" asChild>
@@ -25,20 +27,25 @@ export const MobileNavbar: FC<TsaNavbarProperties> = ({ navLinks, children }) =>
         <NavigationMenu className="mx-auto flex flex-col gap-3 max-w-xl">
           {navLinks?.map((item, index) =>
             item?.dropdown ? (
-              <NavigationMenuList key={index}>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className={cn('bg-transparent text-sm')}>{item.route}</NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid gap-3 p-4 md:grid-cols-2">
-                      {item?.dropdown?.map((link) => (
-                        <ListItem key={link.title} title={link.title} href={link.href}>
-                          {link.description}
-                        </ListItem>
-                      ))}
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
+              <DropdownMenu key={index}>
+                <DropdownMenuTrigger
+                  className={cn(navigationMenuTriggerStyle(), 'flex gap-1', 'bg-transparent hover:bg-transparent')}
+                >
+                  <p>{item.route}</p>
+                  <div className="">
+                    <ChevronDown size={`.8rem`} />
+                  </div>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                    {item?.dropdown?.map((link) => (
+                      <ListItem key={link.title} title={link.title} href={link.href} className={linkClassName}>
+                        {link.description}
+                      </ListItem>
+                    ))}
+                  </ul>
+                </DropdownMenuContent>
+              </DropdownMenu>
             ) : (
               <NavigationMenuList key={index}>
                 <NavigationMenuItem>
