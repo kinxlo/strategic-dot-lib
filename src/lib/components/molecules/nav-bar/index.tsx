@@ -29,7 +29,6 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
   bannerDuration,
 }) => {
   const [scrolling, setIsScrolling] = useState<boolean>(false)
-  const router = useRouter()
 
   const handleScrollEvent = () => {
     setIsScrolling(window.scrollY > 1)
@@ -60,13 +59,7 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
                 <NavigationMenuItem>
                   {item?.dropdown ? (
                     <>
-                      <NavigationMenuTrigger
-                        className={cn(
-                          'bg-transparent text-sm',
-                          linkClassName,
-                          router.pathname === item.link && 'text-primary',
-                        )}
-                      >
+                      <NavigationMenuTrigger className={cn('bg-transparent text-sm', linkClassName)}>
                         {item.route}
                       </NavigationMenuTrigger>
                       <NavigationMenuContent>
@@ -82,12 +75,7 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
                   ) : (
                     <NavigationMenuLink
                       href={item.link}
-                      className={cn(
-                        navigationMenuTriggerStyle(),
-                        'bg-transparent text-sm',
-                        linkClassName,
-                        router.pathname === item.link && 'text-primary',
-                      )}
+                      className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-sm', linkClassName)}
                     >
                       {item.route}
                     </NavigationMenuLink>
