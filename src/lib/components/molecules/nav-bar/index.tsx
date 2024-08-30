@@ -44,9 +44,9 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
   }, [])
 
   return (
-    <nav>
-      <section className={`${scrolling ? 'shadow-md' : 'shadow-none'} sticky left-0 right-0 top-0 z-40 ${className}`}>
-        {showBanner && <Banner duration={bannerDuration || `1m`} />}
+    <section className={`${scrolling ? 'shadow-md' : 'shadow-none'} sticky left-0 right-0 top-0 z-40 ${className}`}>
+      {showBanner && <Banner duration={bannerDuration || `1m`} />}
+      <nav>
         <div
           className={cn(
             `relative mx-auto flex w-full max-w-[1239px] items-center gap-x-4 px-4 transition-all duration-500 justify-between`,
@@ -109,8 +109,8 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
             <MobileNavbar navLinks={navLinks} logoPath={''} />
           </section>
         </div>
-      </section>
-    </nav>
+      </nav>
+    </section>
   )
 }
 
