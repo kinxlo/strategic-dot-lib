@@ -13,12 +13,9 @@ import { FC } from 'react'
 import { ListItem } from '.'
 import { TsaButton } from '../../atoms'
 import { TsaNavbarProperties } from '@/types/index.types'
-import { useRouter } from 'next/router'
 import { cn } from '@/lib/utils'
 
 export const MobileNavbar: FC<TsaNavbarProperties> = ({ navLinks, children }) => {
-  const router = useRouter()
-
   return (
     <Sheet>
       <SheetTrigger className="cursor-pointer" asChild>
@@ -30,11 +27,7 @@ export const MobileNavbar: FC<TsaNavbarProperties> = ({ navLinks, children }) =>
             item?.dropdown ? (
               <NavigationMenuList key={index}>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger
-                    className={cn('bg-transparent text-sm', router.pathname === item.link && 'text-primary')}
-                  >
-                    {item.route}
-                  </NavigationMenuTrigger>
+                  <NavigationMenuTrigger className={cn('bg-transparent text-sm')}>{item.route}</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid gap-3 p-4 md:grid-cols-2">
                       {item?.dropdown?.map((link) => (
@@ -51,11 +44,7 @@ export const MobileNavbar: FC<TsaNavbarProperties> = ({ navLinks, children }) =>
                 <NavigationMenuItem>
                   <NavigationMenuLink
                     href={item.link}
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      'bg-transparent text-sm',
-                      router.pathname === item.link && 'text-primary',
-                    )}
+                    className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-sm')}
                   >
                     {item.route}
                   </NavigationMenuLink>
