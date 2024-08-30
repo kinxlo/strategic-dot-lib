@@ -1,15 +1,15 @@
-// Define types for the dropdown items and the main navigation links
-type DropdownItem = {
-  title: string
-  href: string
-  description: string
-}
+import { NavLink, slideContentProperties } from '@/types/index.types'
 
-export type NavLink = {
-  route: string
-  link: string
-  dropdown?: DropdownItem[] // Optional dropdown property
-}
+export const slideContent: slideContentProperties[] = [
+  { name: 'Fullstack development', image: '/images/logo-black.png', link: 'https://example.com/page1' },
+  { name: 'Item 2', image: '/images/logo-black.png', link: 'https://example.com/page2' },
+  { name: 'Item 3', image: '/images/logo-black.png', link: 'https://example.com/page3' },
+  { name: 'Item 4', image: '/images/logo-black.png', link: 'https://example.com/page4' },
+  { name: 'Item 5', image: '/images/logo-black.png', link: 'https://example.com/page5' },
+  { name: 'Item 6', image: '/images/logo-black.png', link: 'https://example.com/page5' },
+  { name: 'Item 7', image: '/images/logo-black.png', link: 'https://example.com/page5' },
+  { name: 'Item 8', image: '/images/logo-black.png', link: 'https://example.com/page5' },
+]
 
 // Use the types to define the NAV_LINKS array
 export const NAV_LINKS: NavLink[] = [

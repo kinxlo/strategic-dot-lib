@@ -1,48 +1,62 @@
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
   NavigationMenu,
+  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
+  NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from '@/components'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
-import { Menu, ChevronDown } from 'lucide-react'
+import { Menu } from 'lucide-react'
 import { FC } from 'react'
-import { ListItem, NavbarProperties } from '.'
+import { ListItem } from '.'
 import { TsaButton } from '../../atoms'
+import { TsaNavbarProperties } from '@/types/index.types'
+import { useRouter } from 'next/router'
+import { cn } from '@/lib/utils'
 
-export const MobileNavbar: FC<NavbarProperties> = ({ navLinks, children }) => {
+export const MobileNavbar: FC<TsaNavbarProperties> = ({ navLinks, children }) => {
+  const router = useRouter()
+
   return (
     <Sheet>
-      <SheetTrigger asChild>
-        <Menu />
+      <SheetTrigger className="cursor-pointer" asChild>
+        <Menu className="text-white" />
       </SheetTrigger>
-      <SheetContent side="top">
+      <SheetContent side="top" className="p-4">
         <NavigationMenu className="mx-auto flex flex-col gap-3 max-w-xl">
           {navLinks?.map((item, index) =>
             item?.dropdown ? (
-              <DropdownMenu key={index}>
-                <DropdownMenuTrigger className={`${navigationMenuTriggerStyle()}`}>
-                  {item.route}
-                  <ChevronDown size={`1rem`} />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                    {item?.dropdown?.map((link) => (
-                      <ListItem key={link.title} title={link.title} href={link.href}>
-                        {link.description}
-                      </ListItem>
-                    ))}
-                  </ul>
-                </DropdownMenuContent>
-              </DropdownMenu>
+              <NavigationMenuList key={index}>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger
+                    className={cn('bg-transparent text-sm', router.pathname === item.link && 'text-primary')}
+                  >
+                    {item.route}
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid gap-3 p-4 md:grid-cols-2">
+                      {item?.dropdown?.map((link) => (
+                        <ListItem key={link.title} title={link.title} href={link.href}>
+                          {link.description}
+                        </ListItem>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
             ) : (
               <NavigationMenuList key={index}>
                 <NavigationMenuItem>
-                  <NavigationMenuLink href={item.link} className={`${navigationMenuTriggerStyle()}`}>
+                  <NavigationMenuLink
+                    href={item.link}
+                    className={cn(
+                      navigationMenuTriggerStyle(),
+                      'bg-transparent text-sm',
+                      router.pathname === item.link && 'text-primary',
+                    )}
+                  >
                     {item.route}
                   </NavigationMenuLink>
                 </NavigationMenuItem>

@@ -1,8 +1,9 @@
 import React from 'react'
 import { Meta, StoryFn } from '@storybook/react'
 import { TsaNavbar } from '.'
-import { NAV_LINKS } from './links'
 import { TsaButton } from '../../atoms'
+import { NAV_LINKS } from '../../../../constant'
+import { TsaNavbarProperties } from '../../../../types/index.types'
 
 const meta: Meta<typeof TsaNavbar> = {
   title: 'Molecules/tsa-navbar',
@@ -10,9 +11,7 @@ const meta: Meta<typeof TsaNavbar> = {
 }
 export default meta
 
-type TsaNavbarProps = React.ComponentPropsWithoutRef<typeof TsaNavbar>
-
-const Template: StoryFn<TsaNavbarProps> = (args) => <TsaNavbar {...args} />
+const Template: StoryFn<typeof TsaNavbar> = (args: TsaNavbarProperties) => <TsaNavbar {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
@@ -64,4 +63,13 @@ CustomCTA_2.args = {
   logoPath: '/images/logo-white.png',
   className: 'bg-primary',
   linkClassName: 'text-white',
+}
+
+export const CustomCTA_2_with_banner = Template.bind({})
+CustomCTA_2_with_banner.args = {
+  navLinks: NAV_LINKS,
+  logoPath: '/images/logo-white.png',
+  className: 'bg-primary',
+  linkClassName: 'text-white',
+  showBanner: true,
 }

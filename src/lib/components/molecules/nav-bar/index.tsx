@@ -1,48 +1,37 @@
 'use client'
 
-import { FC, forwardRef, ReactNode, useEffect, useState } from 'react'
-import { NavLink } from './links'
-import { ChevronDown } from 'lucide-react'
+import { FC, forwardRef, useEffect, useState } from 'react'
 import { cn } from '@/lib/utils'
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
   NavigationMenu,
+  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
+  NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from '@/components'
 import Logo from '../../atoms/logo'
 import { TsaButton } from '../../atoms'
 import { MobileNavbar } from './mobile-nav'
+import { TsaNavbarProperties } from '@/types/index.types'
+import { useRouter } from 'next/router'
+import { Banner } from './banner'
 
-export interface NavbarProperties {
-  navLinks: NavLink[]
-  logoPath: string
-  children?: ReactNode
-  bgScrollColor?: string
-  linkClassName?: string
-  className?: string
-}
-
-export const TsaNavbar: FC<NavbarProperties> = ({
+export const TsaNavbar: FC<TsaNavbarProperties> = ({
   logoPath = '',
   navLinks,
   children,
   bgScrollColor,
   linkClassName,
   className,
+  showBanner = false,
 }) => {
   const [scrolling, setIsScrolling] = useState<boolean>(false)
+  const router = useRouter()
 
   const handleScrollEvent = () => {
-    if (window.scrollY > 1) {
-      setIsScrolling(true)
-    } else {
-      setIsScrolling(false)
-    }
+    setIsScrolling(window.scrollY > 1)
   }
 
   useEffect(() => {
@@ -54,61 +43,72 @@ export const TsaNavbar: FC<NavbarProperties> = ({
   }, [])
 
   return (
-    <nav className={`${scrolling ? 'shadow-md' : 'shadow-none'} sticky left-0 right-0 top-0 z-40 ${className}`}>
-      <div
-        className={cn(
-          `relative mx-auto flex w-full max-w-[1239px] items-center gap-x-4 px-4 transition-all duration-500 justify-between`,
-          scrolling ? `py-2 ${bgScrollColor}` : 'py-4 md:py-6',
-        )}
-      >
-        <Logo logo={logoPath} />
-        <NavigationMenu className="hidden w-full items-center justify-center gap-x-4 lg:flex lg:gap-x-6">
-          {navLinks?.map((item, index) =>
-            item?.dropdown ? (
-              <DropdownMenu key={index}>
-                <DropdownMenuTrigger
-                  className={`${navigationMenuTriggerStyle()} flex gap-1 bg-transparent ${linkClassName}`}
-                >
-                  <p>{item.route}</p>
-                  <ChevronDown size={`.9rem`} />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                    {item?.dropdown?.map((link) => (
-                      <ListItem key={link.title} title={link.title} href={link.href}>
-                        {link.description}
-                      </ListItem>
-                    ))}
-                  </ul>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            ) : (
+    <nav>
+      <section className={`${scrolling ? 'shadow-md' : 'shadow-none'} sticky left-0 right-0 top-0 z-40 ${className}`}>
+        {showBanner && <Banner duration={`1m`} />}
+        <div
+          className={cn(
+            `relative mx-auto flex w-full max-w-[1239px] items-center gap-x-4 px-4 transition-all duration-500 justify-between`,
+            scrolling ? `py-2 ${bgScrollColor}` : 'py-4 md:py-6',
+          )}
+        >
+          <Logo logo={logoPath} />
+          <NavigationMenu className="hidden w-full items-center justify-center gap-x-4 lg:flex lg:gap-x-6">
+            {navLinks?.map((item, index) => (
               <NavigationMenuList key={index}>
                 <NavigationMenuItem>
-                  <NavigationMenuLink
-                    href={item.link}
-                    className={(navigationMenuTriggerStyle(), `bg-transparent ${linkClassName}`)}
-                  >
-                    {item.route}
-                  </NavigationMenuLink>
+                  {item?.dropdown ? (
+                    <>
+                      <NavigationMenuTrigger
+                        className={cn(
+                          'bg-transparent text-sm',
+                          linkClassName,
+                          router.pathname === item.link && 'text-primary',
+                        )}
+                      >
+                        {item.route}
+                      </NavigationMenuTrigger>
+                      <NavigationMenuContent>
+                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                          {item?.dropdown?.map((link) => (
+                            <ListItem key={link.title} title={link.title} href={link.href}>
+                              {link.description}
+                            </ListItem>
+                          ))}
+                        </ul>
+                      </NavigationMenuContent>
+                    </>
+                  ) : (
+                    <NavigationMenuLink
+                      href={item.link}
+                      className={cn(
+                        navigationMenuTriggerStyle(),
+                        'bg-transparent text-sm',
+                        linkClassName,
+                        router.pathname === item.link && 'text-primary',
+                      )}
+                    >
+                      {item.route}
+                    </NavigationMenuLink>
+                  )}
                 </NavigationMenuItem>
               </NavigationMenuList>
-            ),
-          )}
-        </NavigationMenu>
-        <div className="w-fit hidden items-center justify-end gap-x-2 justify-self-end lg:flex lg:gap-x-4">
-          {children ? (
-            children
-          ) : (
-            <TsaButton href="/signin" variant="primary" className="h-[47px] w-[97px] bg-mid-blue rounded-lg">
-              Sign In
-            </TsaButton>
-          )}
+            ))}
+          </NavigationMenu>
+          <div className="w-fit hidden items-center justify-end gap-x-2 justify-self-end lg:flex lg:gap-x-4">
+            {children ? (
+              children
+            ) : (
+              <TsaButton href="/signin" variant="primary" className="h-[47px] w-[97px] bg-mid-blue rounded-lg">
+                Sign In
+              </TsaButton>
+            )}
+          </div>
+          <section className="lg:hidden">
+            <MobileNavbar navLinks={navLinks} logoPath={''} />
+          </section>
         </div>
-        <section className="lg:hidden">
-          <MobileNavbar navLinks={navLinks} logoPath={''} />
-        </section>
-      </div>
+      </section>
     </nav>
   )
 }
@@ -135,18 +135,3 @@ export const ListItem = forwardRef<React.ElementRef<'a'>, React.ComponentPropsWi
   },
 )
 ListItem.displayName = 'ListItem'
-
-// <NavigationMenuList key={index}>
-//   <NavigationMenuItem>
-//     <NavigationMenuTrigger>{item.route}</NavigationMenuTrigger>
-//     <NavigationMenuContent>
-//       <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-//         {item?.dropdown?.map((link) => (
-//           <ListItem key={link.title} title={link.title} href={link.href}>
-//             {link.description}
-//           </ListItem>
-//         ))}
-//       </ul>
-//     </NavigationMenuContent>
-//   </NavigationMenuItem>
-// </NavigationMenuList>

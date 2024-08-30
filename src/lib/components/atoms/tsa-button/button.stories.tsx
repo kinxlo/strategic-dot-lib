@@ -1,7 +1,8 @@
 import React from 'react'
 import { Meta, StoryFn } from '@storybook/react'
-import { ButtonProperties, TsaButton } from '.'
+import { TsaButton } from '.'
 import { Orbit } from 'lucide-react'
+import { TsaButtonProperties } from '../../../../types/index.types'
 
 const meta: Meta<typeof TsaButton> = {
   title: 'Atoms/tsa-button',
@@ -14,7 +15,7 @@ const meta: Meta<typeof TsaButton> = {
 }
 export default meta
 
-const Template: StoryFn<typeof TsaButton> = (args: ButtonProperties) => <TsaButton {...args} />
+const Template: StoryFn<typeof TsaButton> = (args: TsaButtonProperties) => <TsaButton {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {

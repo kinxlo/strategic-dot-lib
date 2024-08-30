@@ -1,7 +1,8 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 import { StoryFn } from '@storybook/react'
-import { CustomInputProperties, TsaInput } from '.'
+import { TsaInput } from '.'
+import { TsaInputProperties } from '../../../../types/index.types'
 
 const meta: Meta<typeof TsaInput> = {
   title: 'Atoms/tsa-input',
@@ -13,7 +14,7 @@ const meta: Meta<typeof TsaInput> = {
 }
 export default meta
 
-const Template: StoryFn<typeof TsaInput> = (args: CustomInputProperties) => <TsaInput {...args} />
+const Template: StoryFn<typeof TsaInput> = (args: TsaInputProperties) => <TsaInput {...args} />
 
 export const Default = Template.bind({})
 
