@@ -15,7 +15,6 @@ import Logo from '../../atoms/logo'
 import { TsaButton } from '../../atoms'
 import { MobileNavbar } from './mobile-nav'
 import { TsaNavbarProperties } from '@/types/index.types'
-import { useRouter } from 'next/router'
 import { Banner } from './banner'
 
 export const TsaNavbar: FC<TsaNavbarProperties> = ({
