@@ -26,6 +26,7 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
   linkClassName,
   className,
   showBanner = false,
+  bannerDuration,
 }) => {
   const [scrolling, setIsScrolling] = useState<boolean>(false)
   const router = useRouter()
@@ -45,7 +46,7 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
   return (
     <nav>
       <section className={`${scrolling ? 'shadow-md' : 'shadow-none'} sticky left-0 right-0 top-0 z-40 ${className}`}>
-        {showBanner && <Banner duration={`1m`} />}
+        {showBanner && <Banner duration={bannerDuration || `1m`} />}
         <div
           className={cn(
             `relative mx-auto flex w-full max-w-[1239px] items-center gap-x-4 px-4 transition-all duration-500 justify-between`,

@@ -47,6 +47,7 @@ export interface TsaNavbarProperties {
   linkClassName?: string
   className?: string
   showBanner?: boolean
+  bannerDuration?: string
 }
 
 export interface slideContentProperties {
