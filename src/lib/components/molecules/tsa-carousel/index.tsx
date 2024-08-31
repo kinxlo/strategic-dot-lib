@@ -24,7 +24,7 @@ export const TsaCarousel: FC<TsaCarouselProperties> = ({
   showIndicator = false,
   bgColor = 'primary',
 }) => {
-  const [activeIndex, setActiveIndex] = useState(0)
+  const [activeIndex, setActiveIndex] = useState(1)
   const [api, setApi] = useState<CarouselApi | null>(null)
   const thumbsContainerRef = useRef<HTMLDivElement>(null)
 
