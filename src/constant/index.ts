@@ -56,3 +56,16 @@ export const NAV_LINKS: NavLink[] = [
   { route: 'FAQ', link: '/faq' },
   { route: 'Contact Us', link: '/contact' },
 ]
+
+export const imagePaths = [
+  '/images/logo-black.png',
+  '/images/logo-black.png',
+  '/images/logo-black.png',
+  '/images/logo-black.png',
+  '/images/logo-black.png',
+  '/images/logo-black.png',
+  '/images/logo-black.png',
+  '/images/logo-black.png',
+  '/images/logo-black.png',
+  '/images/logo-black.png',
+]

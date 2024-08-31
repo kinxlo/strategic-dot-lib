@@ -1,4 +1,4 @@
-import { ChangeEventHandler, FocusEventHandler, MouseEventHandler, ReactNode } from 'react'
+import { ChangeEventHandler, FocusEventHandler, HtmlHTMLAttributes, MouseEventHandler, ReactNode } from 'react'
 
 export interface LogoProperties {
   logo: string
@@ -66,4 +66,8 @@ export interface NavLink {
   route: string
   link: string
   dropdown?: DropdownItem[]
+}
+
+export interface TsaMarqueeProps extends HtmlHTMLAttributes<HTMLDivElement> {
+  children: ReactNode
 }
