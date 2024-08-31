@@ -16,9 +16,14 @@ import { TsaButton } from '../../atoms'
 interface TsaCarouselProperties {
   slideContent: slideContentProperties[]
   bgColor?: string
+  showIndicator?: boolean
 }
 
-export const TsaCarousel: FC<TsaCarouselProperties> = ({ slideContent, bgColor = 'primary' }) => {
+export const TsaCarousel: FC<TsaCarouselProperties> = ({
+  slideContent,
+  showIndicator = false,
+  bgColor = 'primary',
+}) => {
   const [activeIndex, setActiveIndex] = useState(0)
   const [api, setApi] = useState<CarouselApi | null>(null)
   const thumbsContainerRef = useRef<HTMLDivElement>(null)
@@ -74,8 +79,13 @@ export const TsaCarousel: FC<TsaCarouselProperties> = ({ slideContent, bgColor =
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      {showIndicator && (
+        <>
+          <CarouselPrevious />
+          <CarouselNext />
+        </>
+      )}
+
       <section
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         className={`overflow-auto border rounded-b-[1rem] mx-[4px] p-[10px] bg-${bgColor}`}

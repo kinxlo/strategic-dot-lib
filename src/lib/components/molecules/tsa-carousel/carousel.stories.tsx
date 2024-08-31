@@ -11,7 +11,9 @@ const meta: Meta<typeof TsaCarousel> = {
 }
 export default meta
 
-const Template: StoryFn<typeof TsaCarousel> = (args) => <TsaCarousel slideContent={slideContent} />
+const Template: StoryFn<typeof TsaCarousel> = (args) => (
+  <TsaCarousel showIndicator={false} slideContent={slideContent} />
+)
 
 export const Default = Template.bind({})
 Default.args = {}

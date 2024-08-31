@@ -13,9 +13,9 @@ import { Menu } from 'lucide-react'
 import { FC } from 'react'
 import { ListItem } from '.'
 import { TsaButton } from '../../atoms'
-import { TsaNavbarProperties } from '@/types/index.types'
 import { cn } from '@/lib/utils'
 import { ChevronDown } from 'lucide-react'
+import { TsaNavbarProperties } from '@/types/index.types'
 
 export const MobileNavbar: FC<TsaNavbarProperties> = ({ navLinks, linkClassName, children }) => {
   return (
@@ -29,7 +29,11 @@ export const MobileNavbar: FC<TsaNavbarProperties> = ({ navLinks, linkClassName,
             item?.dropdown ? (
               <DropdownMenu key={index}>
                 <DropdownMenuTrigger
-                  className={cn(navigationMenuTriggerStyle(), 'flex gap-1', 'bg-transparent hover:bg-transparent')}
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    'flex gap-1',
+                    'bg-transparent hover:bg-transparent hover:underline focus:bg-transparent',
+                  )}
                 >
                   <p>{item.route}</p>
                   <div className="">
@@ -51,7 +55,10 @@ export const MobileNavbar: FC<TsaNavbarProperties> = ({ navLinks, linkClassName,
                 <NavigationMenuItem>
                   <NavigationMenuLink
                     href={item.link}
-                    className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-sm')}
+                    className={cn(
+                      navigationMenuTriggerStyle(),
+                      'bg-transparent hover:bg-transparent hover:underline focus:bg-transparent text-sm',
+                    )}
                   >
                     {item.route}
                   </NavigationMenuLink>

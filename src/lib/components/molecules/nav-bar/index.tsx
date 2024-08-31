@@ -15,9 +15,9 @@ import {
 import Logo from '../../atoms/logo'
 import { TsaButton } from '../../atoms'
 import { MobileNavbar } from './mobile-nav'
-import { TsaNavbarProperties } from '@/types/index.types'
 import { Banner } from './banner'
 import { ChevronDown } from 'lucide-react'
+import { TsaNavbarProperties } from '@/types/index.types'
 
 export const TsaNavbar: FC<TsaNavbarProperties> = ({
   logoPath = '',
@@ -63,7 +63,7 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
                     className={cn(
                       navigationMenuTriggerStyle(),
                       'flex gap-1',
-                      'bg-transparent hover:bg-transparent text-white',
+                      'bg-transparent hover:bg-transparent hover:text-white hover:underline focus:bg-transparent focus:text-white text-white',
                     )}
                   >
                     <p>{item.route}</p>
@@ -90,7 +90,7 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
                         navigationMenuTriggerStyle(),
                         linkClassName,
                         'bg-transparent text-sm',
-                        'hover:bg-transparent',
+                        'hover:bg-transparent hover:text-white hover:underline',
                       )}
                     >
                       {item.route}
