@@ -1,14 +1,14 @@
 import { NavLink, slideContentProperties } from '@/types/index.types'
 
 export const SLIDE_CONTENT: slideContentProperties[] = [
-  { name: 'Fullstack development', image: '/images/logo-black.png', link: 'https://example.com/page1' },
-  { name: 'Item 2', image: '/images/logo-black.png', link: 'https://example.com/page2' },
-  { name: 'Item 3', image: '/images/logo-black.png', link: 'https://example.com/page3' },
-  { name: 'Item 4', image: '/images/logo-black.png', link: 'https://example.com/page4' },
-  { name: 'Item 5', image: '/images/logo-black.png', link: 'https://example.com/page5' },
-  { name: 'Item 6', image: '/images/logo-black.png', link: 'https://example.com/page5' },
-  { name: 'Item 7', image: '/images/logo-black.png', link: 'https://example.com/page5' },
-  { name: 'Item 8', image: '/images/logo-black.png', link: 'https://example.com/page5' },
+  { name: 'Fullstack development', image: '/images/img.png', link: 'https://example.com/page1' },
+  { name: 'Item 2', image: '/images/img.png', link: 'https://example.com/page2' },
+  { name: 'Item 3', image: '/images/img.png', link: 'https://example.com/page3' },
+  { name: 'Item 4', image: '/images/img.png', link: 'https://example.com/page4' },
+  { name: 'Item 5', image: '/images/img.png', link: 'https://example.com/page5' },
+  { name: 'Item 6', image: '/images/img.png', link: 'https://example.com/page5' },
+  { name: 'Item 7', image: '/images/img.png', link: 'https://example.com/page5' },
+  { name: 'Item 8', image: '/images/img.png', link: 'https://example.com/page5' },
 ]
 
 // Use the types to define the NAV_LINKS array

@@ -9,22 +9,28 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel'
 import { Thumb } from './embla-thumbs'
-import { FC, useRef, useState, useEffect, useCallback } from 'react'
+import { FC, useRef, useState, useEffect, useCallback, ReactNode } from 'react'
 import Image from 'next/image'
-import { Card } from '@/components'
+import { Card, CardContent } from '@/components'
 import { slideContentProperties } from '@/types/index.types'
 import { TsaButton } from '../../atoms'
+import Autoplay from 'embla-carousel-autoplay'
+import { IMG_PATH, SLIDE_CONTENT } from '@/constant'
 
-interface TsaCarouselProperties {
+export interface TsaCarouselProperties {
   slideContent: slideContentProperties[]
+  galleryContent: ReactNode[]
   bgColor?: string
   showIndicator?: boolean
+  variant?: 'course' | 'gallery'
 }
 
 export const TsaCarousel: FC<TsaCarouselProperties> = ({
   slideContent,
+  galleryContent,
   showIndicator = false,
   bgColor = 'primary',
+  variant = 'course',
 }) => {
   const [activeIndex, setActiveIndex] = useState(1)
   const [api, setApi] = useState<CarouselApi | null>(null)
@@ -63,6 +69,35 @@ export const TsaCarousel: FC<TsaCarouselProperties> = ({
       })
     }
   }, [activeIndex])
+
+  const plugin = useRef(Autoplay({ delay: 5000, stopOnInteraction: true }))
+
+  if (variant === 'gallery') {
+    return (
+      <div>
+        <Carousel plugins={[plugin.current]} className="max-w-[892px] mx-auto relative">
+          <CarouselContent>
+            {galleryContent.map((_, index) => (
+              <CarouselItem key={index}>
+                <div className="p-1">
+                  <Card className="rounded-[30px] overflow-hidden">
+                    <CardContent className="max-w-[892px] h-[664px] p-0">{_}</CardContent>
+                  </Card>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <Image
+            className="absolute top-[10rem] left-[12rem] z-10 scale-[200%]"
+            width={525}
+            height={100}
+            src="/images/Polygon.png"
+            alt="line"
+          />
+        </Carousel>
+      </div>
+    )
+  }
 
   return (
     <Carousel className="w-full max-w-[655px] mx-auto" setApi={setApi}>

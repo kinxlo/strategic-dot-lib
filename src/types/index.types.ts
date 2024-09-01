@@ -54,6 +54,7 @@ export interface slideContentProperties {
   name: string
   image: string
   link: string
+  _image?: ReactNode
 }
 
 type DropdownItem = {
