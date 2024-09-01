@@ -39,8 +39,8 @@ export const TsaBanner: React.FC<TsaBannerProps> = ({
     >
       <div className="self-start mb-4 md:mb-0">{topSlot}</div>
       <div className="text-center flex-1">
-        <h3 className="text-lg md:text-2xl font-semibold">What Our Graduate Say</h3>
-        <Carousel className="w-full max-w-full md:max-w-[597px] mx-auto" setApi={setApi}>
+        <h3 className="text-lg md:text-2xl text-white font-semibold">What Our Graduate Say</h3>
+        <Carousel className="w-full md:max-w-[597px] mx-auto" setApi={setApi}>
           <CarouselContent>
             {testimonials.map((testimonial, index) => (
               <CarouselItem key={index}>
