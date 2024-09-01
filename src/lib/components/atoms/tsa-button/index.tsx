@@ -1,3 +1,5 @@
+'use client'
+
 import { Button } from '@/components/ui/button'
 import { TsaButtonProperties } from '@/types/index.types'
 import { LoaderCircle, Plus } from 'lucide-react'

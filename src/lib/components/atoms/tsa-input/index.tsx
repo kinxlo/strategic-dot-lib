@@ -1,3 +1,5 @@
+'use client'
+
 import { FC, useEffect, useState } from 'react'
 import { InfoIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'

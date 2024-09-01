@@ -1,6 +1,6 @@
 import { NavLink, slideContentProperties } from '@/types/index.types'
 
-export const slideContent: slideContentProperties[] = [
+export const SLIDE_CONTENT: slideContentProperties[] = [
   { name: 'Fullstack development', image: '/images/logo-black.png', link: 'https://example.com/page1' },
   { name: 'Item 2', image: '/images/logo-black.png', link: 'https://example.com/page2' },
   { name: 'Item 3', image: '/images/logo-black.png', link: 'https://example.com/page3' },
@@ -57,7 +57,7 @@ export const NAV_LINKS: NavLink[] = [
   { route: 'Contact Us', link: '/contact' },
 ]
 
-export const imagePaths = [
+export const IMG_PATH = [
   '/images/logo-black.png',
   '/images/logo-black.png',
   '/images/logo-black.png',
@@ -68,4 +68,31 @@ export const imagePaths = [
   '/images/logo-black.png',
   '/images/logo-black.png',
   '/images/logo-black.png',
+]
+
+export const TESTIMONIAL_LIST = [
+  {
+    message: `I have been trying to figure out a way to kickstart my career in tech to no avail.
+I tried self tutorial, still nothing. When I tried techstudio 10 weeks training, my
+story changed for better`,
+    image: `/icons/android-chrome-192x192.png`,
+    name: `Sherif Sorunke`,
+    job: `Product Design, Graduate`,
+  },
+  {
+    message: `I have been trying to figure out a way to kickstart my career in tech to no avail.
+I tried self tutorial, still nothing. When I tried techstudio 10 weeks training, my
+story changed for better`,
+    image: `/icons/android-chrome-192x192.png`,
+    name: `Sherif Sorunke`,
+    job: `Product Design, Graduate`,
+  },
+  {
+    message: `I have been trying to figure out a way to kickstart my career in tech to no avail.
+I tried self tutorial, still nothing. When I tried techstudio 10 weeks training, my
+story changed for better`,
+    image: `/icons/android-chrome-192x192.png`,
+    name: `Sherif Sorunke`,
+    job: `Product Design, Graduate`,
+  },
 ]

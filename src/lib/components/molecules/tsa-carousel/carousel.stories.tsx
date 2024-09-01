@@ -2,7 +2,7 @@ import React from 'react'
 import { Meta } from '@storybook/react'
 import { StoryFn } from '@storybook/react'
 import { TsaCarousel } from '.'
-import { slideContent } from '../../../../constant'
+import { SLIDE_CONTENT } from '../../../../constant'
 
 // Adjust the Meta type to handle the complex types of Accordion components
 const meta: Meta<typeof TsaCarousel> = {
@@ -12,7 +12,7 @@ const meta: Meta<typeof TsaCarousel> = {
 export default meta
 
 const Template: StoryFn<typeof TsaCarousel> = (args) => (
-  <TsaCarousel showIndicator={false} slideContent={slideContent} />
+  <TsaCarousel showIndicator={false} slideContent={SLIDE_CONTENT} />
 )
 
 export const Default = Template.bind({})

@@ -1,3 +1,5 @@
+'use client'
+
 import { cn } from '@/lib/utils'
 import { TsaMarqueeProps } from '@/types/index.types'
 import { FC } from 'react'

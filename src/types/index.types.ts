@@ -71,3 +71,9 @@ export interface NavLink {
 export interface TsaMarqueeProps extends HtmlHTMLAttributes<HTMLDivElement> {
   children: ReactNode
 }
+
+export interface TsaBannerProps extends HtmlHTMLAttributes<HTMLDivElement> {
+  testimonials: { message: string; image: string; name: string; job: string }[]
+  topSlot?: ReactNode
+  bottomSlot?: ReactNode
+}
