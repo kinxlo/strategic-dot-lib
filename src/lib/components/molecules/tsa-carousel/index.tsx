@@ -81,14 +81,14 @@ export const TsaCarousel: FC<TsaCarouselProperties> = ({
               <CarouselItem key={index}>
                 <div className="p-1">
                   <Card className="rounded-[30px] overflow-hidden">
-                    <CardContent className="max-w-[892px] h-[664px] p-0">{_}</CardContent>
+                    <CardContent className="max-w-[892px] lg:h-[664px] p-0">{_}</CardContent>
                   </Card>
                 </div>
               </CarouselItem>
             ))}
           </CarouselContent>
           <Image
-            className="absolute top-[10rem] left-[12rem] z-10 scale-[200%]"
+            className="hidden lg:block absolute top-[10rem] left-[12rem] z-10 scale-[200%]"
             width={525}
             height={100}
             src="/images/Polygon.png"
