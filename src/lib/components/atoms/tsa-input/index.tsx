@@ -10,7 +10,7 @@ export const TsaInput: FC<TsaInputProperties> = ({
   label,
   isRequired = true,
   state: initialState = 'default',
-  helpText = 'Hi there!',
+  helpText,
   name,
   placeholder,
   type = 'text',
