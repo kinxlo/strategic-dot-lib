@@ -12,7 +12,4 @@ export default meta
 const Template: StoryFn<TsaFooterProperties> = (args) => <TsaFooter {...args} />
 
 export const Default = Template.bind({})
-Default.args = {
-  footerBgColor: 'default',
-  footerLayoutType: 'centered',
-}
+Default.args = {}

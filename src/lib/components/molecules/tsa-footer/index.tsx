@@ -10,33 +10,12 @@ import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react'
 import { SelectSeparator } from '@/components'
 import Logo from '../../atoms/logo'
 
-// Define footer variants
-const footerVariants = cva('mx-auto py-14 px-3 lg:px-0 text-white', {
-  variants: {
-    layout: {
-      default: 'flex flex-col lg:flex-row justify-between',
-      grid: 'flex flex-col items-center text-center',
-    },
-    bgColor: {
-      default: 'bg-primary',
-      light: 'bg-light-grey',
-      custom: '',
-    },
-  },
-  defaultVariants: {
-    layout: 'default',
-    bgColor: 'default',
-  },
-})
-
-export interface TsaFooterProps extends TsaFooterProperties, VariantProps<typeof footerVariants> {}
-
-export const TsaFooter: FC<TsaFooterProps> = ({ footerBgColor, footerLayoutType, className, ...rest }) => {
+export const TsaFooter: FC<TsaFooterProperties> = ({ className, ...rest }) => {
   return (
-    <div className={cn(footerVariants({ layout: footerLayoutType, bgColor: footerBgColor }), className)} {...rest}>
-      <footer>
-        <section className="grid grid-cols-1 lg:grid-cols-6 gap-8 lg:gap-0">
-          <div className="lg:col-span-2">
+    <div className={cn(`bg-primary py-[64px] text-white`, className)} {...rest}>
+      <footer className="max-w-[1240px] mx-auto">
+        <section className="flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-0">
+          <div className="flex flex-col">
             <Logo logo={'/images/logo-white.png'} />
             <ul className="flex flex-col text-sm mt-5 gap-1">
               <li className="mb-2">
@@ -47,7 +26,7 @@ export const TsaFooter: FC<TsaFooterProps> = ({ footerBgColor, footerLayoutType,
               </li>
             </ul>
           </div>
-          <div className="lg:col-span-1">
+          <div className="flex flex-col lg:w-1/6">
             <p className="text-base font-bold pb-2.5">Courses</p>
             <ul className="flex flex-col gap-3">
               <li>
@@ -67,7 +46,7 @@ export const TsaFooter: FC<TsaFooterProps> = ({ footerBgColor, footerLayoutType,
               </li>
             </ul>
           </div>
-          <div className="lg:col-span-1">
+          <div className="flex flex-col lg:w-1/6">
             <h5 className="text-base">
               <Link className="text-white hover:text-gray-300" href="/about-us">
                 About Us
@@ -91,8 +70,8 @@ export const TsaFooter: FC<TsaFooterProps> = ({ footerBgColor, footerLayoutType,
               </li>
             </ul>
           </div>
-          <div className="lg:col-span-2">
-            <div className="max-w-[452px] lg:ml-auto">
+          <div className="flex flex-col lg:w-1/3">
+            <div>
               <h5 className="text-base pb-2.5">Subscribe to our newsletter</h5>
               <div className="flex items-center justify-between bg-white rounded-lg p-1">
                 <span className="w-full">

@@ -88,6 +88,6 @@ export interface TsaCarouselProperties {
 }
 
 export interface TsaFooterProperties extends HtmlHTMLAttributes<HTMLDivElement> {
-  footerBgColor: `default` | `light` | `custom`
-  footerLayoutType: `default` | `grid`
+  footerBgColor: `default`
+  footerLayoutType: `default`
 }
