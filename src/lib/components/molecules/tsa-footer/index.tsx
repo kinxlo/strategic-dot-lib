@@ -12,7 +12,7 @@ export const TsaFooter = () => {
       <div className="mx-auto">
         <footer className="max-w-[1240px] mx-auto py-14 px-3 lg:px-0 text-white">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-10 lg:gap-10">
-            <div>
+            <div className="col-span-1">
               <Logo logo={'/images/logo-white.png'} />
               <ul className="flex flex-col text-sm mt-5 gap-1">
                 <li className="mb-2">
@@ -23,7 +23,7 @@ export const TsaFooter = () => {
                 </li>
               </ul>
             </div>
-            <div>
+            <div className="col-span-1">
               <p className="text-base font-bold pb-2.5">Courses</p>
               <ul className="flex flex-col gap-3">
                 <li>
@@ -58,7 +58,7 @@ export const TsaFooter = () => {
                 </li>
               </ul>
             </div>
-            <div>
+            <div className="col-span-1">
               <h5 className="text-base">
                 <Link className="text-white hover:text-gray-300" href="/about-us">
                   About Us
