@@ -45,13 +45,17 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
   }, [])
 
   return (
-    <section className={`${scrolling ? 'shadow-md' : 'shadow-none'} sticky left-0 right-0 top-0 z-40 ${className}`}>
+    <section
+      className={`${
+        scrolling ? `shadow-md ${bgScrollColor}` : 'shadow-none'
+      } sticky left-0 right-0 top-0 z-40 ${className}`}
+    >
       {showBanner && <Banner duration={bannerDuration || `1m`} />}
       <nav>
         <div
           className={cn(
             `relative mx-auto flex w-full max-w-[1239px] items-center gap-x-4 px-4 transition-all duration-500 justify-between`,
-            scrolling ? `py-2 ${bgScrollColor}` : 'py-4 md:py-6',
+            scrolling ? `py-2` : 'py-4 md:py-6',
           )}
         >
           <Logo logo={logoPath} />

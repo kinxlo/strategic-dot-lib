@@ -57,7 +57,7 @@ export const Banner: React.FC<BannerProps> = ({ duration, className, ...rest }) 
 
   return (
     <section className={cn(`flex bg-background text-center p-4 items-cente justify-center`, className)} {...rest}>
-      <p className="text-lg font-bold text-primary">
+      <p className="text-sm lg:text-lg font-bold text-primary">
         Get 10% Discount Off Our Next Cohort! &#128073;
         <span className="text-mid-danger lg:ml-5">
           {message}

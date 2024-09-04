@@ -78,3 +78,16 @@ export interface TsaBannerProps extends HtmlHTMLAttributes<HTMLDivElement> {
   topSlot?: ReactNode
   bottomSlot?: ReactNode
 }
+
+export interface TsaCarouselProperties {
+  slideContent: slideContentProperties[]
+  galleryContent: ReactNode[]
+  bgColor?: string
+  showIndicator?: boolean
+  variant?: 'course' | 'gallery'
+}
+
+export interface TsaFooterProperties extends HtmlHTMLAttributes<HTMLDivElement> {
+  footerMaxWidth: string
+  footerBgColor: string
+}

@@ -1,9 +1,10 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 import { StoryFn } from '@storybook/react'
-import { TsaCarousel, TsaCarouselProperties } from '.'
+import { TsaCarousel } from '.'
 import { SLIDE_CONTENT } from '../../../../constant'
 import Image from 'next/image'
+import { TsaCarouselProperties } from '../../../../types/index.types'
 
 // Adjust the Meta type to handle the complex types of Accordion components
 const meta: Meta<typeof TsaCarousel> = {

@@ -12,18 +12,9 @@ import { Thumb } from './embla-thumbs'
 import { FC, useRef, useState, useEffect, useCallback, ReactNode } from 'react'
 import Image from 'next/image'
 import { Card, CardContent } from '@/components'
-import { slideContentProperties } from '@/types/index.types'
+import { slideContentProperties, TsaCarouselProperties } from '@/types/index.types'
 import { TsaButton } from '../../atoms'
 import Autoplay from 'embla-carousel-autoplay'
-import { IMG_PATH, SLIDE_CONTENT } from '@/constant'
-
-export interface TsaCarouselProperties {
-  slideContent: slideContentProperties[]
-  galleryContent: ReactNode[]
-  bgColor?: string
-  showIndicator?: boolean
-  variant?: 'course' | 'gallery'
-}
 
 export const TsaCarousel: FC<TsaCarouselProperties> = ({
   slideContent,
