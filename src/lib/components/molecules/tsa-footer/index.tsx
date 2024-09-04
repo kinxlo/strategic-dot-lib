@@ -1,13 +1,14 @@
+'use client'
+
 import Link from 'next/link'
 import { TsaButton, TsaInput } from '../../atoms'
 import { Facebook, Instagram, Linkedin, Twitter, X } from 'lucide-react'
 import { SelectSeparator } from '@/components'
-import Image from 'next/image'
 import Logo from '../../atoms/logo'
 
 export const TsaFooter = () => {
   return (
-    <div className="bg-primary z-50 mt-20">
+    <div className="bg-primary mt-20">
       <div className="mx-auto">
         <footer className="max-w-[1240px] mx-auto py-14 px-3 lg:px-0 text-white">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-10 lg:gap-10">
