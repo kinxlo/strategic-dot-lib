@@ -21,7 +21,7 @@ export const MobileNavbar: FC<TsaNavbarProperties> = ({ navLinks, linkClassName,
   return (
     <Sheet>
       <SheetTrigger className="cursor-pointer" asChild>
-        <Menu className="text-white" />
+        <Menu className="text-accent" />
       </SheetTrigger>
       <SheetContent side="top" className="p-4">
         <NavigationMenu className="mx-auto flex flex-col gap-3 max-w-xl">
@@ -33,6 +33,7 @@ export const MobileNavbar: FC<TsaNavbarProperties> = ({ navLinks, linkClassName,
                     navigationMenuTriggerStyle(),
                     'flex gap-1',
                     'bg-transparent hover:bg-transparent hover:underline focus:bg-transparent',
+                    linkClassName,
                   )}
                 >
                   <p>{item.route}</p>
@@ -43,7 +44,7 @@ export const MobileNavbar: FC<TsaNavbarProperties> = ({ navLinks, linkClassName,
                 <DropdownMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
                     {item?.dropdown?.map((link) => (
-                      <ListItem key={link.title} title={link.title} href={link.href} className={linkClassName}>
+                      <ListItem key={link.title} title={link.title} href={link.href}>
                         {link.description}
                       </ListItem>
                     ))}

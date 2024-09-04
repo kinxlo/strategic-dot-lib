@@ -68,6 +68,7 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
                       navigationMenuTriggerStyle(),
                       'flex gap-1',
                       'bg-transparent hover:bg-transparent hover:text-white hover:underline focus:bg-transparent focus:text-white text-white',
+                      linkClassName,
                     )}
                   >
                     <p>{item.route}</p>
@@ -78,7 +79,7 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
                   <DropdownMenuContent>
                     <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
                       {item?.dropdown?.map((link) => (
-                        <ListItem key={link.title} title={link.title} href={link.href} className={linkClassName}>
+                        <ListItem key={link.title} title={link.title} href={link.href}>
                           {link.description}
                         </ListItem>
                       ))}
@@ -92,9 +93,9 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
                       href={item.link}
                       className={cn(
                         navigationMenuTriggerStyle(),
-                        linkClassName,
                         'bg-transparent text-sm',
                         'hover:bg-transparent hover:text-white hover:underline',
+                        linkClassName,
                       )}
                     >
                       {item.route}

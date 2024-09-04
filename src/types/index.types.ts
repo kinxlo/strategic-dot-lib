@@ -87,7 +87,4 @@ export interface TsaCarouselProperties {
   variant?: 'course' | 'gallery'
 }
 
-export interface TsaFooterProperties extends HtmlHTMLAttributes<HTMLDivElement> {
-  footerBgColor: `default`
-  footerLayoutType: `default`
-}
+export interface TsaFooterProperties extends HtmlHTMLAttributes<HTMLDivElement> {}
