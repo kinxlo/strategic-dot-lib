@@ -12,7 +12,7 @@ import { Thumb } from './embla-thumbs'
 import { FC, useRef, useState, useEffect, useCallback, ReactNode } from 'react'
 import Image from 'next/image'
 import { Card, CardContent } from '@/components'
-import { slideContentProperties, TsaCarouselProperties } from '@/types/index.types'
+import { TsaCarouselProperties } from '@/types/index.types'
 import { TsaButton } from '../../atoms'
 import Autoplay from 'embla-carousel-autoplay'
 
@@ -62,6 +62,28 @@ export const TsaCarousel: FC<TsaCarouselProperties> = ({
   }, [activeIndex])
 
   const plugin = useRef(Autoplay({ delay: 5000, stopOnInteraction: true }))
+
+  if (variant === 'facility') {
+    return (
+      <Carousel className="w-full max-w-[1240px] mx-auto">
+        <CarouselContent>
+          {Array.from({ length: 5 }).map((_, index) => (
+            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+              <div className="p-1">
+                <Card>
+                  <CardContent className="flex aspect-square items-center justify-center p-6">
+                    <span className="text-3xl font-semibold">{index + 1}</span>
+                  </CardContent>
+                </Card>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
+    )
+  }
 
   if (variant === 'gallery') {
     return (

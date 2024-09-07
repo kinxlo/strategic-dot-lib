@@ -54,7 +54,7 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
       <nav>
         <div
           className={cn(
-            `relative mx-auto flex w-full max-w-[1239px] items-center gap-x-4 px-4 transition-all duration-500 justify-between`,
+            `relative mx-auto flex w-full max-w-[1239px] items-center gap-x-4 px-4 lg:px-0 transition-all duration-500 justify-between`,
             scrolling ? `py-2` : 'py-4 md:py-6',
           )}
         >

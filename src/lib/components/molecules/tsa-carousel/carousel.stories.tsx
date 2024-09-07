@@ -22,5 +22,12 @@ Default.args = {
   variant: 'gallery',
   galleryContent: [
     <Image className="w-full h-full object-cover" width={500} height={500} src={'/images/img.png'} alt={'img'} />,
+    <Image className="w-full h-full object-cover" width={500} height={500} src={'/images/img.png'} alt={'img'} />,
+    <Image className="w-full h-full object-cover" width={500} height={500} src={'/images/img.png'} alt={'img'} />,
+    <Image className="w-full h-full object-cover" width={500} height={500} src={'/images/img.png'} alt={'img'} />,
+    <Image className="w-full h-full object-cover" width={500} height={500} src={'/images/img.png'} alt={'img'} />,
+    <Image className="w-full h-full object-cover" width={500} height={500} src={'/images/img.png'} alt={'img'} />,
+    <Image className="w-full h-full object-cover" width={500} height={500} src={'/images/img.png'} alt={'img'} />,
+    <Image className="w-full h-full object-cover" width={500} height={500} src={'/images/img.png'} alt={'img'} />,
   ],
 }

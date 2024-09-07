@@ -84,7 +84,7 @@ export interface TsaCarouselProperties {
   galleryContent: ReactNode[]
   bgColor?: string
   showIndicator?: boolean
-  variant?: 'course' | 'gallery'
+  variant?: 'course' | 'gallery' | 'facility'
 }
 
 export interface TsaFooterProperties extends HtmlHTMLAttributes<HTMLDivElement> {}

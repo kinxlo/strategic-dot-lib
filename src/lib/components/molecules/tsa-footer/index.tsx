@@ -6,13 +6,14 @@ import { cn } from '@/lib/utils'
 import { TsaFooterProperties } from '@/types/index.types'
 import Link from 'next/link'
 import { TsaButton, TsaInput } from '../../atoms'
-import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react'
+import { FaFacebookF, FaLinkedinIn, FaInstagram } from 'react-icons/fa'
+import { FaXTwitter } from 'react-icons/fa6'
 import { SelectSeparator } from '@/components'
 import Logo from '../../atoms/logo'
 
 export const TsaFooter: FC<TsaFooterProperties> = ({ className, ...rest }) => {
   return (
-    <div className={cn(`bg-primary py-[64px] text-white`, className)} {...rest}>
+    <div className={cn(`bg-primary py-[64px] text-white px-[1rem] lg:px-0`, className)} {...rest}>
       <footer className="max-w-[1240px] mx-auto">
         <section className="flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-0">
           <div className="flex flex-col">
@@ -72,7 +73,7 @@ export const TsaFooter: FC<TsaFooterProperties> = ({ className, ...rest }) => {
           </div>
           <div className="flex flex-col lg:w-1/3">
             <div>
-              <h5 className="text-base pb-2.5">Subscribe to our newsletter</h5>
+              <h5 className="text-base pb-2.5 text-white">Subscribe to our newsletter</h5>
               <div className="flex items-center justify-between bg-white rounded-lg p-1">
                 <span className="w-full">
                   <TsaInput
@@ -97,7 +98,7 @@ export const TsaFooter: FC<TsaFooterProperties> = ({ className, ...rest }) => {
             <p className="font-light">Terms and Policy</p>
             <li>
               <a target="_blank" href="https://twitter.com/techstudioacdmy" className="text-white hover:text-gray-300">
-                <Twitter />
+                <FaXTwitter />
               </a>
             </li>
             <li>
@@ -106,7 +107,7 @@ export const TsaFooter: FC<TsaFooterProperties> = ({ className, ...rest }) => {
                 href="https://linkedin.com/company/techstudioacademy"
                 className="text-white hover:text-gray-300"
               >
-                <Linkedin />
+                <FaLinkedinIn />
               </a>
             </li>
             <li>
@@ -115,7 +116,7 @@ export const TsaFooter: FC<TsaFooterProperties> = ({ className, ...rest }) => {
                 href="https://facebook.com/techstudioacademy"
                 className="text-white hover:text-gray-300"
               >
-                <Facebook />
+                <FaFacebookF />
               </a>
             </li>
             <li>
@@ -124,7 +125,7 @@ export const TsaFooter: FC<TsaFooterProperties> = ({ className, ...rest }) => {
                 href="https://instagram.com/techstudioacademy"
                 className="text-white hover:text-gray-300"
               >
-                <Instagram />
+                <FaInstagram />
               </a>
             </li>
           </ul>
