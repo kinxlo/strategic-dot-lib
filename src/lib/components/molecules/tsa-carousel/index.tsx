@@ -121,7 +121,9 @@ export const TsaCarousel: FC<TsaCarouselProperties> = ({
               <Card className="h-full relative rounded-none rounded-t-[1rem] overflow-hidden">
                 <div className="absolute flex flex-col items-center justify-center top-0 left-0 w-full h-full p-2 gap-[23px] bg-gray-900 bg-opacity-70">
                   <p className="text-4xl  text-center text-white font-[700]">{content.name}</p>
-                  <TsaButton className="bg-background w-[160px] text-mid-blue border-mid-blue ">View Course</TsaButton>
+                  <TsaButton href={content.link} className="bg-background w-[160px] text-mid-blue border-mid-blue ">
+                    View Course
+                  </TsaButton>
                 </div>
                 <Image width={200} height={200} src={content.image} alt="logo" className="w-full h-full object-cover" />
               </Card>
