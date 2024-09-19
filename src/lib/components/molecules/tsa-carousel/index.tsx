@@ -23,7 +23,7 @@ export const TsaCarousel: FC<TsaCarouselProperties> = ({
   bgColor = 'primary',
   variant = 'course',
 }) => {
-  const [activeIndex, setActiveIndex] = useState(0)
+  const [activeIndex, setActiveIndex] = useState(1)
   const [api, setApi] = useState<CarouselApi | null>(null)
   const thumbsContainerRef = useRef<HTMLDivElement>(null)
 
@@ -37,18 +37,18 @@ export const TsaCarousel: FC<TsaCarouselProperties> = ({
     [api],
   )
 
-  useEffect(() => {
-    if (!api) return
+  // useEffect(() => {
+  //   if (!api) return
 
-    const handleSelect = () => {
-      setActiveIndex(api.selectedScrollSnap())
-    }
+  //   const handleSelect = () => {
+  //     setActiveIndex(api.selectedScrollSnap())
+  //   }
 
-    api.on('select', handleSelect)
-    return () => {
-      api.off('select', handleSelect)
-    }
-  }, [api])
+  //   api.on('select', handleSelect)
+  //   return () => {
+  //     api.off('select', handleSelect)
+  //   }
+  // }, [api])
 
   useEffect(() => {
     const activeThumb = thumbsContainerRef.current?.children[activeIndex] as HTMLElement
