@@ -12,16 +12,16 @@ interface ThumbProps extends HTMLAttributes<HTMLDivElement> {
 export const Thumb: React.FC<ThumbProps> = ({ selected, index, title, onClick, ...rest }) => {
   const thumbRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    if (selected && thumbRef.current) {
-      // Scroll the selected thumbnail into view if not visible
-      thumbRef.current.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'center',
-      })
-    }
-  }, [selected])
+  // useEffect(() => {
+  //   if (selected && thumbRef.current) {
+  //     // Scroll the selected thumbnail into view if not visible
+  //     thumbRef.current.scrollIntoView({
+  //       behavior: 'smooth',
+  //       block: 'nearest',
+  //       inline: 'center',
+  //     })
+  //   }
+  // }, [selected])
 
   return (
     <div ref={thumbRef} {...rest}>
