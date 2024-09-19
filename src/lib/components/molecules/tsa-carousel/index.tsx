@@ -30,7 +30,7 @@ export const TsaCarousel: FC<TsaCarouselProperties> = ({
   const handleThumbClick = useCallback(
     (index: number) => {
       if (api) {
-        api.scrollTo(index)
+        // api.scrollTo(index)
         setActiveIndex(index)
       }
     },
