@@ -23,7 +23,7 @@ export const TsaCarousel: FC<TsaCarouselProperties> = ({
   bgColor = 'primary',
   variant = 'course',
 }) => {
-  const [activeIndex, setActiveIndex] = useState(1)
+  const [activeIndex, setActiveIndex] = useState(0)
   const [api, setApi] = useState<CarouselApi | null>(null)
   const thumbsContainerRef = useRef<HTMLDivElement>(null)
 
