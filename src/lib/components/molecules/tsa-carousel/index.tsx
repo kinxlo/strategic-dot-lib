@@ -50,16 +50,16 @@ export const TsaCarousel: FC<TsaCarouselProperties> = ({
     }
   }, [api])
 
-  // useEffect(() => {
-  //   const activeThumb = thumbsContainerRef.current?.children[activeIndex] as HTMLElement
-  //   if (activeThumb) {
-  //     activeThumb.scrollIntoView({
-  //       behavior: 'smooth',
-  //       block: 'nearest',
-  //       inline: 'center',
-  //     })
-  //   }
-  // }, [activeIndex])
+  useEffect(() => {
+    const activeThumb = thumbsContainerRef.current?.children[activeIndex] as HTMLElement
+    if (activeThumb) {
+      activeThumb.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center',
+      })
+    }
+  }, [activeIndex])
 
   const plugin = useRef(Autoplay({ delay: 5000, stopOnInteraction: true }))
 
