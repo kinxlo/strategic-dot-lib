@@ -1,7 +1,7 @@
 {
   "name": "@strategic-dot/components",
   "private": false,
-  "version": "0.0.64-beta",
+  "version": "0.0.65-beta",
   "packageManager": "pnpm@9.7.1",
   "author": "Kinxlo",
   "repository": {
