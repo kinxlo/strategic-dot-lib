@@ -122,7 +122,6 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
 
 export const ListItem = forwardRef<React.ElementRef<'a'>, React.ComponentPropsWithoutRef<'a'>>(
   ({ className, title, children, href, ...props }, ref) => {
-    const pathname = usePathname()
     return (
       <li>
         <NavigationMenuLink asChild>
@@ -131,7 +130,6 @@ export const ListItem = forwardRef<React.ElementRef<'a'>, React.ComponentPropsWi
             className={cn(
               'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground',
               className,
-              href && pathname?.includes(href) ? 'text-mid-danger' : '',
             )}
             {...props}
           >

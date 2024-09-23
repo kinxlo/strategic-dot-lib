@@ -62,7 +62,6 @@ export const MobileNavbar: FC<TsaNavbarProperties> = ({ navLinks, linkClassName,
                     className={cn(
                       navigationMenuTriggerStyle(),
                       'bg-transparent hover:bg-transparent hover:underline focus:bg-transparent text-sm',
-                      linkClassName,
                     )}
                   >
                     {item.route}
