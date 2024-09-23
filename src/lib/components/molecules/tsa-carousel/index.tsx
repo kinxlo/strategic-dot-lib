@@ -117,8 +117,8 @@ export const TsaCarousel: FC<TsaCarouselProperties> = ({
       <CarouselContent className="h-[270px]">
         {slideContent?.map((content, index) => (
           <CarouselItem className="h-full" key={index}>
-            <div className="p-1 h-full">
-              <Card className="h-full relative rounded-none rounded-t-[1rem] overflow-hidden">
+            <div className="p-1 h-full rounded-t-[1rem] overflow-hidden">
+              <Card className="h-full relative  rounded-t-[1rem] overflow-hidden">
                 <div className="absolute flex flex-col items-center justify-center top-0 left-0 w-full h-full p-2 gap-[23px] bg-gray-900 bg-opacity-70">
                   <p className="text-4xl  text-center text-white font-[700]">{content.name}</p>
                   <TsaButton href={content.link} className="bg-background w-[160px] text-mid-blue border-mid-blue ">

@@ -18,6 +18,7 @@ import { MobileNavbar } from './mobile-nav'
 import { Banner } from './banner'
 import { ChevronDown } from 'lucide-react'
 import { TsaNavbarProperties } from '@/types/index.types'
+import { usePathname } from 'next/navigation' // Import usePathname hook
 
 export const TsaNavbar: FC<TsaNavbarProperties> = ({
   logoPath = '',
@@ -30,7 +31,7 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
   bannerDuration,
 }) => {
   const [scrolling, setIsScrolling] = useState<boolean>(false)
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+  const pathname = usePathname()
 
   const handleScrollEvent = () => {
     setIsScrolling(window.scrollY > 1)
@@ -53,10 +54,7 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
       {showBanner && <Banner duration={bannerDuration || `1m`} />}
       <nav>
         <div
-          className={cn(
-            `relative mx-auto flex w-full max-w-[1239px] items-center gap-x-4 px-4 lg:px-0 transition-all duration-500 justify-between`,
-            scrolling ? `py-2` : 'py-4 md:py-6',
-          )}
+          className={`relative mx-auto flex w-full max-w-[1240px] items-center gap-x-4 px-4 xl:px-0 transition-all duration-500 justify-between py-4 md:py-6`}
         >
           <Logo logo={logoPath} />
           <NavigationMenu className="hidden w-full items-center justify-center gap-x-4 lg:flex lg:gap-x-6">
@@ -67,8 +65,10 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
                     className={cn(
                       navigationMenuTriggerStyle(),
                       'flex gap-1',
-                      'bg-transparent hover:bg-transparent hover:text-white hover:underline focus:bg-transparent focus:text-white text-white',
+                      'bg-transparent hover:bg-transparent hover:text-mid-danger hover:underline focus:bg-transparent focus:text-white text-white',
                       linkClassName,
+                      // Check if the pathname includes the dropdown link
+                      item.dropdown?.some((link) => pathname?.includes(link.href)) ? 'text-mid-danger' : '',
                     )}
                   >
                     <p>{item.route}</p>
@@ -94,8 +94,9 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
                       className={cn(
                         navigationMenuTriggerStyle(),
                         'bg-transparent text-sm',
-                        'hover:bg-transparent hover:text-white hover:underline',
+                        'hover:bg-transparent hover:text-mid-danger hover:underline',
                         linkClassName,
+                        pathname === item.link ? 'text-mid-danger' : '',
                       )}
                     >
                       {item.route}
@@ -124,7 +125,8 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
 }
 
 export const ListItem = forwardRef<React.ElementRef<'a'>, React.ComponentPropsWithoutRef<'a'>>(
-  ({ className, title, children, ...props }, ref) => {
+  ({ className, title, children, href, ...props }, ref) => {
+    const pathname = usePathname()
     return (
       <li>
         <NavigationMenuLink asChild>
@@ -133,6 +135,7 @@ export const ListItem = forwardRef<React.ElementRef<'a'>, React.ComponentPropsWi
             className={cn(
               'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground',
               className,
+              href && pathname?.includes(href) ? 'text-mid-danger' : '',
             )}
             {...props}
           >
