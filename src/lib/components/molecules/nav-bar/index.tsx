@@ -31,7 +31,6 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
   bannerDuration,
 }) => {
   const [scrolling, setIsScrolling] = useState<boolean>(false)
-  const pathname = usePathname()
 
   const handleScrollEvent = () => {
     setIsScrolling(window.scrollY > 1)
@@ -67,8 +66,6 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
                       'flex gap-1',
                       'bg-transparent hover:bg-transparent hover:text-mid-danger hover:underline focus:bg-transparent focus:text-white text-white',
                       linkClassName,
-                      // Check if the pathname includes the dropdown link
-                      item.dropdown?.some((link) => pathname?.includes(link.href)) ? 'text-mid-danger' : '',
                     )}
                   >
                     <p>{item.route}</p>
@@ -96,7 +93,6 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
                         'bg-transparent text-sm',
                         'hover:bg-transparent hover:text-mid-danger hover:underline',
                         linkClassName,
-                        pathname === item.link ? 'text-mid-danger' : '',
                       )}
                     >
                       {item.route}
