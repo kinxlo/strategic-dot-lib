@@ -126,6 +126,7 @@ export const ListItem = forwardRef<React.ElementRef<'a'>, React.ComponentPropsWi
       <li>
         <NavigationMenuLink asChild>
           <a
+            href={href}
             ref={ref}
             className={cn(
               'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground',
