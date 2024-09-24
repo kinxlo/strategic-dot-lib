@@ -68,9 +68,9 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
                       linkClassName,
                     )}
                   >
-                    <p>{item.route}</p>
+                    <p className="text-white hover:text-mid-danger">{item.route}</p>
                     <div className="mt-1">
-                      <ChevronDown size={`.8rem`} />
+                      <ChevronDown className="text-white" size={`.8rem`} />
                     </div>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent>
