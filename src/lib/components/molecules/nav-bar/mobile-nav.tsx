@@ -16,7 +16,7 @@ import { TsaButton } from '../../atoms'
 import { cn } from '@/lib/utils'
 import { ChevronDown } from 'lucide-react'
 import { TsaNavbarProperties } from '@/types/index.types'
-import { usePathname } from 'next/navigation' // Import usePathname hook
+import { usePathname } from 'next/navigation'
 
 export const MobileNavbar: FC<TsaNavbarProperties> = ({ navLinks, linkClassName, children }) => {
   const pathname = usePathname()
@@ -35,17 +35,18 @@ export const MobileNavbar: FC<TsaNavbarProperties> = ({ navLinks, linkClassName,
                   className={cn(
                     navigationMenuTriggerStyle(),
                     'flex gap-1',
-                    'bg-transparent hover:bg-transparent hover:underline focus:bg-transparent',
+                    'bg-transparent hover:bg-transparent focus:bg-transparent active:bg-transparent hover:text-mid-danger',
+                    'text-black focus:text-black active:text-black',
                     linkClassName,
                   )}
                 >
-                  <p>{item.route}</p>
-                  <div className="">
-                    <ChevronDown size={`.8rem`} />
+                  <p className="text-black hover:text-mid-danger">{item.route}</p>
+                  <div className="ml-1">
+                    <ChevronDown className="text-black" size={`.8rem`} />
                   </div>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                     {item?.dropdown?.map((link) => (
                       <ListItem key={link.title} title={link.title} href={link.href}>
                         {link.description}
@@ -61,7 +62,7 @@ export const MobileNavbar: FC<TsaNavbarProperties> = ({ navLinks, linkClassName,
                     href={item.link}
                     className={cn(
                       navigationMenuTriggerStyle(),
-                      'bg-transparent hover:bg-transparent hover:underline focus:bg-transparent text-sm',
+                      'bg-transparent hover:bg-transparent hover:text-mid-danger hover:underline focus:bg-transparent text-sm',
                     )}
                   >
                     {item.route}

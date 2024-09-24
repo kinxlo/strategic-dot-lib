@@ -64,7 +64,7 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
                     className={cn(
                       navigationMenuTriggerStyle(),
                       'flex gap-1',
-                      'bg-transparent hover:bg-transparent hover:text-mid-danger hover:underline focus:bg-transparent focus:text-white text-white',
+                      'bg-transparent hover:bg-transparent active:bg-transparent hover:text-mid-danger hover:underline focus:bg-transparent focus:text-white text-white',
                       linkClassName,
                     )}
                   >
@@ -91,7 +91,7 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
                       className={cn(
                         navigationMenuTriggerStyle(),
                         'bg-transparent text-sm',
-                        'hover:bg-transparent hover:text-mid-danger hover:underline',
+                        'hover:bg-transparent active:bg-transparent hover:text-mid-danger hover:underline',
                         linkClassName,
                       )}
                     >
@@ -121,12 +121,11 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
 }
 
 export const ListItem = forwardRef<React.ElementRef<'a'>, React.ComponentPropsWithoutRef<'a'>>(
-  ({ className, title, children, href, ...props }, ref) => {
+  ({ className, title, children, ...props }, ref) => {
     return (
       <li>
         <NavigationMenuLink asChild>
           <a
-            href={href}
             ref={ref}
             className={cn(
               'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground',
