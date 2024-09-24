@@ -18,7 +18,7 @@ import { MobileNavbar } from './mobile-nav'
 import { Banner } from './banner'
 import { ChevronDown } from 'lucide-react'
 import { TsaNavbarProperties } from '@/types/index.types'
-import { usePathname } from 'next/navigation' // Import usePathname hook
+import { usePathname } from 'next/navigation'
 
 export const TsaNavbar: FC<TsaNavbarProperties> = ({
   logoPath = '',
@@ -31,6 +31,7 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
   bannerDuration,
 }) => {
   const [scrolling, setIsScrolling] = useState<boolean>(false)
+  const pathname = usePathname()
 
   const handleScrollEvent = () => {
     setIsScrolling(window.scrollY > 1)
@@ -43,6 +44,8 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
       window.removeEventListener('scroll', handleScrollEvent)
     }
   }, [])
+
+  const isActiveLink = (link: string) => pathname === link
 
   return (
     <section
@@ -64,19 +67,25 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
                     className={cn(
                       navigationMenuTriggerStyle(),
                       'flex gap-1',
-                      'bg-transparent hover:bg-transparent active:bg-transparent hover:text-mid-danger hover:underline focus:bg-transparent focus:text-white text-white',
+                      'bg-transparent hover:bg-transparent active:bg-transparent',
+                      isActiveLink(item.link) ? 'text-blue-500 underline' : 'text-white hover:text-mid-danger',
                       linkClassName,
                     )}
                   >
-                    <p className="text-white hover:text-mid-danger">{item.route}</p>
+                    <p>{item.route}</p>
                     <div className="mt-1">
-                      <ChevronDown className="text-white" size={`.8rem`} />
+                      <ChevronDown className="text-current" size={`.8rem`} />
                     </div>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent>
-                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                       {item?.dropdown?.map((link) => (
-                        <ListItem key={link.title} title={link.title} href={link.href}>
+                        <ListItem
+                          key={link.title}
+                          title={link.title}
+                          href={link.href}
+                          className={isActiveLink(link.href) ? 'bg-gray-200 text-black' : ''}
+                        >
                           {link.description}
                         </ListItem>
                       ))}
@@ -91,7 +100,7 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
                       className={cn(
                         navigationMenuTriggerStyle(),
                         'bg-transparent text-sm',
-                        'hover:bg-transparent active:bg-transparent hover:text-mid-danger hover:underline',
+                        isActiveLink(item.link) ? 'text-blue-500 underline' : 'text-white hover:text-mid-danger',
                         linkClassName,
                       )}
                     >
@@ -122,18 +131,22 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
 
 export const ListItem = forwardRef<React.ElementRef<'a'>, React.ComponentPropsWithoutRef<'a'>>(
   ({ className, title, children, ...props }, ref) => {
+    const pathname = usePathname() // Get the current path
+    const isActive = pathname === props.href
+
     return (
       <li>
         <NavigationMenuLink asChild>
           <a
             ref={ref}
             className={cn(
-              'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground',
+              'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors',
+              isActive ? 'bg-gray-200 text-black' : 'hover:bg-accent hover:text-accent-foreground',
               className,
             )}
             {...props}
           >
-            <div className="text-sm font-medium leading-none text-primary">{title}</div>
+            <div className="text-sm font-medium leading-none">{title}</div>
             <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">{children}</p>
           </a>
         </NavigationMenuLink>
