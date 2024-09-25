@@ -6,7 +6,6 @@ import { SLIDE_CONTENT } from '../../../../constant'
 import Image from 'next/image'
 import { TsaCarouselProperties } from '../../../../types/index.types'
 
-// Adjust the Meta type to handle the complex types of Accordion components
 const meta: Meta<typeof TsaCarousel> = {
   title: 'Molecules/TsaCarousel',
   component: TsaCarousel,
@@ -14,12 +13,17 @@ const meta: Meta<typeof TsaCarousel> = {
 export default meta
 
 const Template: StoryFn<typeof TsaCarousel> = (args: TsaCarouselProperties) => (
-  <TsaCarousel {...args} showIndicator={false} slideContent={SLIDE_CONTENT} />
+  <TsaCarousel {...args} showIndicator={false} courseContent={SLIDE_CONTENT} />
 )
 
-export const Default = Template.bind({})
-Default.args = {
-  variant: 'gallery',
+export const CourseCarousel = Template.bind({})
+CourseCarousel.args = {
+  variant: `course`,
+}
+
+export const GalleryCarousel = Template.bind({})
+GalleryCarousel.args = {
+  variant: `gallery`,
   galleryContent: [
     <Image className="w-full h-full object-cover" width={500} height={500} src={'/images/img.png'} alt={'img'} />,
     <Image className="w-full h-full object-cover" width={500} height={500} src={'/images/img.png'} alt={'img'} />,
@@ -29,5 +33,21 @@ Default.args = {
     <Image className="w-full h-full object-cover" width={500} height={500} src={'/images/img.png'} alt={'img'} />,
     <Image className="w-full h-full object-cover" width={500} height={500} src={'/images/img.png'} alt={'img'} />,
     <Image className="w-full h-full object-cover" width={500} height={500} src={'/images/img.png'} alt={'img'} />,
+  ],
+}
+
+export const FacilityCarousel = Template.bind({})
+FacilityCarousel.args = {
+  variant: `facility`,
+  facilityContent: [
+    '/images/img.png',
+    '/images/img.png',
+    '/images/img.png',
+    '/images/img.png',
+    '/images/img.png',
+    '/images/img.png',
+    '/images/img.png',
+    '/images/img.png',
+    '/images/img.png',
   ],
 }

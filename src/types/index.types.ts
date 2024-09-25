@@ -80,8 +80,9 @@ export interface TsaBannerProps extends HtmlHTMLAttributes<HTMLDivElement> {
 }
 
 export interface TsaCarouselProperties {
-  slideContent: slideContentProperties[]
-  galleryContent: ReactNode[]
+  courseContent?: slideContentProperties[]
+  galleryContent?: ReactNode[]
+  facilityContent?: string[]
   bgColor?: string
   showIndicator?: boolean
   variant?: 'course' | 'gallery' | 'facility'
