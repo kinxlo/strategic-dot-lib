@@ -86,6 +86,9 @@ export interface TsaCarouselProperties {
   bgColor?: string
   showIndicator?: boolean
   variant?: 'course' | 'gallery' | 'facility'
+  stopZoom?: boolean
+  itemsPerView?: number
+  facilityCaroselFlatMaxWidth?: string
 }
 
 export interface TsaFooterProperties extends HtmlHTMLAttributes<HTMLDivElement> {}

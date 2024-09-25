@@ -1,7 +1,7 @@
 {
   "name": "@strategic-dot/components",
   "private": false,
-  "version": "0.0.73-beta",
+  "version": "0.0.74-beta",
   "packageManager": "pnpm@9.7.1",
   "author": "Ifijeh Kingsley Solomon (Kinxlo)",
   "repository": {

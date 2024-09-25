@@ -1,5 +1,7 @@
 'use client'
 
+import { CircleX } from 'lucide-react'
+
 import {
   Carousel,
   CarouselApi,
@@ -11,7 +13,7 @@ import {
 import { Thumb } from './embla-thumbs'
 import { FC, useRef, useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
-import { Card, CardContent } from '@/components'
+import { Card, CardContent, Dialog, DialogClose, DialogContent } from '@/components'
 import { TsaCarouselProperties } from '@/types/index.types'
 import { TsaButton } from '../../atoms'
 import Autoplay from 'embla-carousel-autoplay'
@@ -23,10 +25,20 @@ export const TsaCarousel: FC<TsaCarouselProperties> = ({
   showIndicator = false,
   bgColor = 'primary',
   variant = 'course',
+  stopZoom = false,
+  itemsPerView = 3,
+  facilityCaroselFlatMaxWidth = '1240px',
 }) => {
-  const [activeIndex, setActiveIndex] = useState(1)
+  const [activeIndex, setActiveIndex] = useState(0)
   const [api, setApi] = useState<CarouselApi | null>(null)
   const thumbsContainerRef = useRef<HTMLDivElement>(null)
+  const [selectedItem, setSelectedItem] = useState('')
+  const visibleItems =
+    window.innerWidth >= 1024
+      ? itemsPerView
+      : window.innerWidth >= 768
+      ? Math.min(2, itemsPerView)
+      : Math.min(1, itemsPerView)
 
   const handleThumbClick = useCallback(
     (index: number) => {
@@ -64,54 +76,81 @@ export const TsaCarousel: FC<TsaCarouselProperties> = ({
 
   const plugin = useRef(Autoplay({ delay: 5000, stopOnInteraction: true }))
   if (variant === 'facility') {
-    const visibleItems = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1
+    const carouselHeight = stopZoom ? '480px' : '350px'
+    const carouselWidth = stopZoom ? '372px' : '100%'
 
     return (
-      <Carousel plugins={[plugin.current]} className="w-full max-w-[1240px] mx-auto" setApi={setApi}>
-        <CarouselContent>
-          {facilityContent?.map((_, index) => {
-            const isCenterItem =
-              index === Math.floor(activeIndex - (visibleItems / 2 - 0.5)) ||
-              index === Math.floor(activeIndex + (visibleItems / 2 - 0.5))
+      <>
+        <Carousel
+          plugins={[plugin.current]}
+          className={`w-full max-w-[${facilityCaroselFlatMaxWidth}] mx-auto`}
+          setApi={setApi}
+        >
+          <CarouselContent>
+            {facilityContent?.map((item, index) => {
+              const isCenterItem =
+                index === Math.floor(activeIndex - (visibleItems / 2 - 0.5)) ||
+                index === Math.floor(activeIndex + (visibleItems / 2 - 0.5))
 
-            return (
-              <CarouselItem
+              return (
+                <CarouselItem
+                  key={index}
+                  className={`md:basis-1/2 ${
+                    stopZoom ? 'lg:basis-1/4' : 'lg:basis-1/3'
+                  } transition-transform duration-300 ${isCenterItem && !stopZoom ? 'scale-100' : 'scale-90'}`}
+                  onClick={() => setSelectedItem(item)}
+                >
+                  <Card style={{ width: carouselWidth, height: carouselHeight }}>
+                    <CardContent className="flex rounded-[8px] overflow-hidden p-0 items-center justify-center">
+                      <Image
+                        src={item}
+                        alt={`carousel-image-${index}`}
+                        layout="fill"
+                        objectFit="cover"
+                        className="rounded-[8px] w-[100%]"
+                        style={{ width: '100%', height: '100%' }}
+                      />
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+              )
+            })}
+          </CarouselContent>
+
+          {/* Custom Indicator */}
+          <div className={`flex justify-center mt-[47px] ${stopZoom ? 'hidden' : 'flex'}`}>
+            {facilityContent?.map((_, index) => (
+              <div
                 key={index}
-                className={`md:basis-1/2 lg:basis-1/3 transition-transform duration-300 ${
-                  isCenterItem ? 'scale-100' : 'scale-90'
-                }`}
-              >
-                {/* <div style={{ width: '500px', height: '350px' }}> */}
-                <Card className="w-full h-[350px]">
-                  <CardContent className="flex rounded-[8px] overflow-hidden p-0 items-center justify-center">
-                    <Image
-                      src={_}
-                      alt={`carousel-image-${index}`}
-                      layout="fill"
-                      objectFit="cover"
-                      className="rounded-[8px]"
-                      style={{ width: '100%', height: '100%' }}
-                    />
-                  </CardContent>
-                </Card>
-                {/* </div> */}
-              </CarouselItem>
-            )
-          })}
-        </CarouselContent>
+                className={`w-[10px] h-[10px] mx-[3px] rounded-full ${
+                  index === activeIndex ? 'bg-blue-500 scale-125' : 'bg-blue-200'
+                } transition-all duration-300`}
+              />
+            ))}
+          </div>
+        </Carousel>
 
-        {/* Custom Indicator */}
-        <div className="flex justify-center mt-4">
-          {facilityContent?.map((_, index) => (
-            <div
-              key={index}
-              className={`w-[10px] h-[10px] mx-[3px] rounded-full ${
-                index === activeIndex ? 'bg-blue-500 scale-125' : 'bg-blue-200'
-              } transition-all duration-300`}
-            />
-          ))}
-        </div>
-      </Carousel>
+        {/* Modal for displaying the selected item */}
+        {selectedItem && (
+          <Dialog open={!!selectedItem} onOpenChange={() => setSelectedItem('')}>
+            <DialogContent className="sm:max-w-[900px] bg-transparent">
+              <DialogClose className="absolute top-2 right-2">
+                <CircleX size={24} className="text-white border border-white" />
+              </DialogClose>
+              {selectedItem && (
+                <Image
+                  src={selectedItem}
+                  alt="Selected Carousel Item"
+                  layout="responsive"
+                  width={500}
+                  height={350}
+                  className="rounded"
+                />
+              )}
+            </DialogContent>
+          </Dialog>
+        )}
+      </>
     )
   }
 
