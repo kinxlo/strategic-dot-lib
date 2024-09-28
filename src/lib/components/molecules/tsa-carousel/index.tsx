@@ -33,12 +33,7 @@ export const TsaCarousel: FC<TsaCarouselProperties> = ({
   const [api, setApi] = useState<CarouselApi | null>(null)
   const thumbsContainerRef = useRef<HTMLDivElement>(null)
   const [selectedItem, setSelectedItem] = useState('')
-  const visibleItems =
-    window.innerWidth >= 1024
-      ? itemsPerView
-      : window.innerWidth >= 768
-      ? Math.min(2, itemsPerView)
-      : Math.min(1, itemsPerView)
+  const [visibleItems, setVisibleItems] = useState(1)
 
   const handleThumbClick = useCallback(
     (index: number) => {
@@ -49,6 +44,24 @@ export const TsaCarousel: FC<TsaCarouselProperties> = ({
     },
     [api],
   )
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const updateVisibleItems = () => {
+        if (window.innerWidth >= 1024) {
+          setVisibleItems(itemsPerView)
+        } else if (window.innerWidth >= 768) {
+          setVisibleItems(Math.min(2, itemsPerView))
+        } else {
+          setVisibleItems(Math.min(1, itemsPerView))
+        }
+      }
+
+      updateVisibleItems()
+      window.addEventListener('resize', updateVisibleItems)
+      return () => window.removeEventListener('resize', updateVisibleItems)
+    }
+  }, [itemsPerView])
 
   useEffect(() => {
     if (!api) return
@@ -182,7 +195,7 @@ export const TsaCarousel: FC<TsaCarouselProperties> = ({
   }
 
   return (
-    <Carousel plugins={[plugin.current]} className="w-full max-w-[655px] mx-auto" setApi={setApi}>
+    <Carousel className="w-full max-w-[655px] mx-auto" setApi={setApi}>
       <CarouselContent className="h-[270px]">
         {courseContent?.map((content, index) => (
           <CarouselItem className="h-full" key={index}>

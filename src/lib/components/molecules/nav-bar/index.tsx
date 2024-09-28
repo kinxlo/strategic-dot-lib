@@ -67,7 +67,7 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
                     className={cn(
                       navigationMenuTriggerStyle(),
                       'flex gap-1',
-                      'bg-transparent hover:bg-transparent active:bg-transparent',
+                      'bg-transparent active:bg-transparent',
                       isActiveLink(item.link) ? 'text-blue-500 underline' : 'text-white hover:text-mid-danger',
                       linkClassName,
                     )}

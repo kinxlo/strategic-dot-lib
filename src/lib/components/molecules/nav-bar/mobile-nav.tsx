@@ -23,10 +23,10 @@ export const MobileNavbar: FC<TsaNavbarProperties> = ({ navLinks, linkClassName,
 
   return (
     <Sheet>
-      <SheetTrigger className="cursor-pointer" asChild>
-        <Menu className={pathname?.includes(`about`) ? `text-black` : `text-white`} />
+      <SheetTrigger className="cursor-pointer bg-white rounded-sm" asChild>
+        <Menu className="text-black" />
       </SheetTrigger>
-      <SheetContent side="top" className="p-4">
+      <SheetContent side="top" className="p-10">
         <NavigationMenu className="mx-auto flex flex-col gap-3 max-w-xl">
           {navLinks?.map((item, index) =>
             item?.dropdown ? (
