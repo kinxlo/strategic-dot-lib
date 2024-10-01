@@ -46,7 +46,7 @@ export const TsaFooter: FC<TsaFooterProperties> = ({ className, navLinks, subscr
             </ul>
           </div>
           <div className="flex flex-col lg:w-1/6">
-            <h5 className="text-base">About Us</h5>
+            <h5 className="text-base text-white">About Us</h5>
             <ul className="flex flex-col gap-3 mt-3">
               <li>
                 <Link className="text-white hover:text-mid-danger text-xs" href="/about">
