@@ -76,16 +76,16 @@ export const TsaCarousel: FC<TsaCarouselProperties> = ({
     }
   }, [api])
 
-  useEffect(() => {
-    const activeThumb = thumbsContainerRef.current?.children[activeIndex] as HTMLElement
-    if (activeThumb) {
-      activeThumb.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'center',
-      })
-    }
-  }, [activeIndex])
+  // useEffect(() => {
+  //   const activeThumb = thumbsContainerRef.current?.children[activeIndex] as HTMLElement
+  //   if (activeThumb) {
+  //     activeThumb.scrollIntoView({
+  //       behavior: 'smooth',
+  //       block: 'nearest',
+  //       inline: 'center',
+  //     })
+  //   }
+  // }, [activeIndex])
 
   const plugin = useRef(Autoplay({ delay: 5000, stopOnInteraction: true }))
   if (variant === 'facility') {
@@ -195,7 +195,7 @@ export const TsaCarousel: FC<TsaCarouselProperties> = ({
   }
 
   return (
-    <Carousel className="w-full max-w-[655px] mx-auto" setApi={setApi}>
+    <Carousel plugins={[plugin.current]} className="w-full max-w-[655px] mx-auto" setApi={setApi}>
       <CarouselContent className="h-[270px]">
         {courseContent?.map((content, index) => (
           <CarouselItem className="h-full" key={index}>

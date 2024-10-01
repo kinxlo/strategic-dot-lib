@@ -91,4 +91,6 @@ export interface TsaCarouselProperties {
   facilityCaroselFlatMaxWidth?: string
 }
 
-export interface TsaFooterProperties extends HtmlHTMLAttributes<HTMLDivElement> {}
+export interface TsaFooterProperties extends TsaNavbarProperties, HtmlHTMLAttributes<HTMLDivElement> {
+  subscribeComponent: ReactNode
+}
