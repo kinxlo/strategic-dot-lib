@@ -121,7 +121,7 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
             )}
           </div>
           <section className="lg:hidden">
-            <MobileNavbar linkClassName={linkClassName} navLinks={navLinks} logoPath={''} />
+            <MobileNavbar children={children} linkClassName={linkClassName} navLinks={navLinks} logoPath={''} />
           </section>
         </div>
       </nav>
