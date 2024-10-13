@@ -1,17 +1,16 @@
 'use client'
 
 import { FC } from 'react'
-import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 import { TsaFooterProperties } from '@/types/index.types'
 import Link from 'next/link'
-import { TsaButton, TsaInput } from '../../atoms'
 import { FaFacebookF, FaLinkedinIn, FaInstagram } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
 import { SelectSeparator } from '@/components'
 import Logo from '../../atoms/logo'
+import { Input, TsaButton } from '../../atoms'
 
-export const TsaFooter: FC<TsaFooterProperties> = ({ className, ...rest }) => {
+export const TsaFooter: FC<TsaFooterProperties> = ({ className, navLinks, subscribeComponent, ...rest }) => {
   return (
     <div className={cn(`bg-primary py-[64px] text-white px-[1rem] lg:px-0`, className)} {...rest}>
       <footer className="max-w-[1240px] mx-auto">
@@ -30,42 +29,37 @@ export const TsaFooter: FC<TsaFooterProperties> = ({ className, ...rest }) => {
           <div className="flex flex-col lg:w-1/6">
             <p className="text-base font-bold pb-2.5">Courses</p>
             <ul className="flex flex-col gap-3">
-              <li>
-                <Link className="text-white hover:text-gray-300 text-xs" href="/course/frontend">
-                  Frontend Development
-                </Link>
-              </li>
-              <li>
-                <Link className="text-white hover:text-gray-300 text-xs" href="/course/backend">
-                  Backend Development
-                </Link>
-              </li>
-              <li>
-                <Link className="text-white hover:text-gray-300 text-xs" href="/course/fullstack">
-                  Fullstack Development
-                </Link>
-              </li>
+              {navLinks?.map((item, index) => {
+                if (item.dropdown) {
+                  return item.dropdown.map((course, index) => {
+                    return (
+                      <li key={index}>
+                        <Link className="text-white hover:text-mid-danger text-xs" href={course.href}>
+                          {course.title}
+                        </Link>
+                      </li>
+                    )
+                  })
+                }
+                return null
+              })}
             </ul>
           </div>
           <div className="flex flex-col lg:w-1/6">
-            <h5 className="text-base">
-              <Link className="text-white hover:text-gray-300" href="/about-us">
-                About Us
-              </Link>
-            </h5>
+            <h5 className="text-base text-white">About Us</h5>
             <ul className="flex flex-col gap-3 mt-3">
               <li>
-                <Link className="text-white hover:text-gray-300 text-xs" href="/about-us">
+                <Link className="text-white hover:text-mid-danger text-xs" href="/about">
                   Our Story
                 </Link>
               </li>
               <li>
-                <Link className="text-white hover:text-gray-300 text-xs" href="/contact-us">
+                <Link className="text-white hover:text-mid-danger text-xs" href="/contact">
                   Contact Us
                 </Link>
               </li>
               <li>
-                <Link className="text-white hover:text-gray-300 text-xs" href="/careers">
+                <Link className="text-white hover:text-mid-danger text-xs" href="/careers">
                   Careers
                 </Link>
               </li>
@@ -74,20 +68,23 @@ export const TsaFooter: FC<TsaFooterProperties> = ({ className, ...rest }) => {
           <div className="flex flex-col lg:w-1/3">
             <div>
               <h5 className="text-base pb-2.5 text-white">Subscribe to our newsletter</h5>
-              <div className="flex items-center justify-between bg-white rounded-lg p-1">
-                <span className="w-full">
-                  <TsaInput
-                    type="email"
-                    className="py-2 text-xs border-none text-black"
-                    placeholder="Email Address"
-                    aria-label="Email Address"
-                    aria-describedby="button-addon2"
-                  />
-                </span>
-                <TsaButton size="lg" variant="primary" className="bg-mid-blue">
-                  Subscribe
-                </TsaButton>
-              </div>
+              {subscribeComponent || (
+                <div className="flex items-center justify-between bg-white rounded-lg p-1">
+                  <span className="w-full">
+                    <Input
+                      disabled
+                      type="email"
+                      className="py-2 text-xs border-none text-black"
+                      placeholder="Email Address"
+                      aria-label="Email Address"
+                      aria-describedby="button-addon2"
+                    />
+                  </span>
+                  <TsaButton isDisabled={true} size="lg" variant="primary" className="bg-mid-blue">
+                    Subscribe
+                  </TsaButton>
+                </div>
+              )}
             </div>
           </div>
         </section>
@@ -97,7 +94,11 @@ export const TsaFooter: FC<TsaFooterProperties> = ({ className, ...rest }) => {
           <ul className="flex items-center gap-[33px]">
             <p className="font-light">Terms and Policy</p>
             <li>
-              <a target="_blank" href="https://twitter.com/techstudioacdmy" className="text-white hover:text-gray-300">
+              <a
+                target="_blank"
+                href="https://twitter.com/techstudioacdmy"
+                className="text-white hover:text-mid-danger"
+              >
                 <FaXTwitter />
               </a>
             </li>
@@ -105,7 +106,7 @@ export const TsaFooter: FC<TsaFooterProperties> = ({ className, ...rest }) => {
               <a
                 target="_blank"
                 href="https://linkedin.com/company/techstudioacademy"
-                className="text-white hover:text-gray-300"
+                className="text-white hover:text-mid-danger"
               >
                 <FaLinkedinIn />
               </a>
@@ -114,7 +115,7 @@ export const TsaFooter: FC<TsaFooterProperties> = ({ className, ...rest }) => {
               <a
                 target="_blank"
                 href="https://facebook.com/techstudioacademy"
-                className="text-white hover:text-gray-300"
+                className="text-white hover:text-mid-danger"
               >
                 <FaFacebookF />
               </a>
@@ -123,7 +124,7 @@ export const TsaFooter: FC<TsaFooterProperties> = ({ className, ...rest }) => {
               <a
                 target="_blank"
                 href="https://instagram.com/techstudioacademy"
-                className="text-white hover:text-gray-300"
+                className="text-white hover:text-mid-danger"
               >
                 <FaInstagram />
               </a>

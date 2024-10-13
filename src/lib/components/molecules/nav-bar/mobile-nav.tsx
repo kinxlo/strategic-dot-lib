@@ -16,11 +16,8 @@ import { TsaButton } from '../../atoms'
 import { cn } from '@/lib/utils'
 import { ChevronDown } from 'lucide-react'
 import { TsaNavbarProperties } from '@/types/index.types'
-import { usePathname } from 'next/navigation'
 
 export const MobileNavbar: FC<TsaNavbarProperties> = ({ navLinks, linkClassName, children }) => {
-  const pathname = usePathname()
-
   return (
     <Sheet>
       <SheetTrigger className="cursor-pointer bg-white rounded-sm" asChild>
