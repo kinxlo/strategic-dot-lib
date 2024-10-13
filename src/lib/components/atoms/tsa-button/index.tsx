@@ -1,49 +1,13 @@
+'use client'
+
 import { Button } from '@/components/ui/button'
+import { TsaButtonProperties } from '@/types/index.types'
 import { LoaderCircle, Plus } from 'lucide-react'
 import Link from 'next/link'
 
-import { cloneElement, FC, MouseEventHandler, ReactElement, ReactNode } from 'react'
+import { cloneElement, FC, ReactElement } from 'react'
 
-type Variant = 'default' | 'primary' | 'destructive' | 'subtle' | 'loading' | 'outline' | 'secondary' | 'ghost' | 'link'
-type Size = 'default' | 'sm' | 'lg' | 'link' | 'icon' | 'circle'
-
-interface ButtonProperties {
-  type?: 'submit' | 'button' | 'reset'
-  /** Specifies the button style variant */
-  variant?: Variant
-  /** Specifies the size of the button */
-  size?: Size
-  /** Icon to be displayed inside the button */
-  icon?: ReactNode
-  /** Text or elements to be displayed inside the button */
-  children?: ReactNode
-  /** Indicates if the button is in a loading state */
-  isLoading?: boolean
-  /** Indicates if the button is icon only */
-  isIconOnly?: boolean
-  /** Indicates if the left icon is visible */
-  isLeftIconVisible?: boolean
-  /** Indicates if the right icon is visible */
-  isRightIconVisible?: boolean
-  /** Disables the button if true */
-  isDisabled?: boolean
-  /** Accessibility label for the button */
-  ariaLabel?: string
-  /** Href to link button to a URL or route */
-  href?: string
-  /** Class for custom styling */
-  className?: string
-  /** Click event handler for the button */
-  onClick?: MouseEventHandler<HTMLButtonElement>
-}
-
-/**
- * TsaButton component to render a button with various styles and states.
- *
- * @param {ButtonProps} props - Properties to configure the button.
- * @returns {JSX.Element} The rendered button component.
- */
-const TsaButton: FC<ButtonProperties> = ({
+const TsaButton: FC<TsaButtonProperties> = ({
   type = 'button',
   variant,
   size,
@@ -136,4 +100,3 @@ const TsaButton: FC<ButtonProperties> = ({
 }
 
 export { TsaButton }
-export type { ButtonProperties }

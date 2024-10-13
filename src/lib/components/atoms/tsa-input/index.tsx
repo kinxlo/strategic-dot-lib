@@ -1,29 +1,16 @@
+'use client'
+
 import { FC, useEffect, useState } from 'react'
 import { InfoIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Input } from '@/components/ui/input'
+import { TsaInputProperties } from '@/types/index.types'
 
-export interface CustomInputProperties {
-  label?: string
-  isRequired?: boolean
-  state?: 'default' | 'primary' | 'error'
-  name?: string
-  placeholder: string
-  type?: string
-  value?: string
-  onChange?: React.ChangeEventHandler<HTMLInputElement>
-  onFocus?: React.FocusEventHandler<HTMLInputElement>
-  isDisabled?: boolean
-  className?: string
-  helpText?: string
-  validate?: (value: string) => boolean
-}
-
-export const TsaInput: FC<CustomInputProperties> = ({
+export const TsaInput: FC<TsaInputProperties> = ({
   label,
   isRequired = true,
   state: initialState = 'default',
-  helpText = 'Hi there!',
+  helpText,
   name,
   placeholder,
   type = 'text',
